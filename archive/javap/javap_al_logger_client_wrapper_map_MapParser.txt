@@ -1,0 +1,334 @@
+Compiled from "MapParser.java"
+public class al.logger.client.wrapper.map.MapParser {
+  private java.lang.String map;
+
+  private java.util.List<al.logger.client.wrapper.map.Map> maps;
+
+  public al.logger.client.wrapper.map.MapParser(java.io.InputStream);
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: new           #2                  // class java/util/ArrayList
+       8: dup
+       9: invokespecial #3                  // Method java/util/ArrayList."<init>":()V
+      12: putfield      #4                  // Field maps:Ljava/util/List;
+      15: aload_0
+      16: new           #5                  // class java/lang/String
+      19: dup
+      20: aload_1
+      21: invokestatic  #6                  // Method al/logger/client/utils/FileUtils.readStream:(Ljava/io/InputStream;)[B
+      24: invokespecial #7                  // Method java/lang/String."<init>":([B)V
+      27: putfield      #8                  // Field map:Ljava/lang/String;
+      30: return
+    LineNumberTable:
+      line 15: 0
+      line 13: 4
+      line 16: 15
+      line 17: 30
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+          0      31     0  this   Lal/logger/client/wrapper/map/MapParser;
+          0      31     1 stream   Ljava/io/InputStream;
+
+  public void parse();
+    Code:
+       0: aload_0
+       1: getfield      #8                  // Field map:Ljava/lang/String;
+       4: ldc           #9                  // String \r
+       6: ldc           #10                 // String
+       8: invokevirtual #11                 // Method java/lang/String.replace:(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+      11: ldc           #12                 // String \n
+      13: invokevirtual #13                 // Method java/lang/String.split:(Ljava/lang/String;)[Ljava/lang/String;
+      16: astore_1
+      17: getstatic     #14                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      20: new           #15                 // class java/lang/StringBuilder
+      23: dup
+      24: invokespecial #16                 // Method java/lang/StringBuilder."<init>":()V
+      27: ldc           #17                 // String Start parsing Srg[
+      29: invokevirtual #18                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      32: aload_1
+      33: arraylength
+      34: invokevirtual #19                 // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      37: ldc           #20                 // String  lines]
+      39: invokevirtual #18                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      42: invokevirtual #21                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      45: invokevirtual #22                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      48: aload_1
+      49: astore_2
+      50: aload_2
+      51: arraylength
+      52: istore_3
+      53: iconst_0
+      54: istore        4
+      56: iload         4
+      58: iload_3
+      59: if_icmpge     425
+      62: aload_2
+      63: iload         4
+      65: aaload
+      66: astore        5
+      68: aload         5
+      70: ldc           #23                 // String
+      72: invokevirtual #13                 // Method java/lang/String.split:(Ljava/lang/String;)[Ljava/lang/String;
+      75: astore        6
+      77: aload         6
+      79: arraylength
+      80: iconst_1
+      81: if_icmple     419
+      84: aload         6
+      86: iconst_0
+      87: aaload
+      88: ldc           #24                 // String CL:
+      90: invokevirtual #25                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      93: ifeq          131
+      96: new           #26                 // class al/logger/client/wrapper/map/ClassMap
+      99: dup
+     100: aload         6
+     102: iconst_1
+     103: aaload
+     104: invokestatic  #27                 // Method getClassName:(Ljava/lang/String;)Ljava/lang/String;
+     107: aload         6
+     109: iconst_2
+     110: aaload
+     111: invokestatic  #27                 // Method getClassName:(Ljava/lang/String;)Ljava/lang/String;
+     114: invokespecial #28                 // Method al/logger/client/wrapper/map/ClassMap."<init>":(Ljava/lang/String;Ljava/lang/String;)V
+     117: astore        7
+     119: aload_0
+     120: getfield      #4                  // Field maps:Ljava/util/List;
+     123: aload         7
+     125: invokeinterface #29,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     130: pop
+     131: aload         6
+     133: iconst_0
+     134: aaload
+     135: ldc           #30                 // String FD:
+     137: invokevirtual #25                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     140: ifeq          260
+     143: aload         6
+     145: iconst_1
+     146: aaload
+     147: ldc           #31                 // String /
+     149: invokevirtual #32                 // Method java/lang/String.lastIndexOf:(Ljava/lang/String;)I
+     152: istore        7
+     154: aload         6
+     156: iconst_1
+     157: aaload
+     158: iconst_0
+     159: iload         7
+     161: invokevirtual #33                 // Method java/lang/String.substring:(II)Ljava/lang/String;
+     164: astore        8
+     166: aload         6
+     168: iconst_1
+     169: aaload
+     170: iload         7
+     172: invokevirtual #34                 // Method java/lang/String.substring:(I)Ljava/lang/String;
+     175: ldc           #31                 // String /
+     177: ldc           #10                 // String
+     179: invokevirtual #11                 // Method java/lang/String.replace:(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+     182: astore        9
+     184: aload         6
+     186: iconst_2
+     187: aaload
+     188: ldc           #31                 // String /
+     190: invokevirtual #32                 // Method java/lang/String.lastIndexOf:(Ljava/lang/String;)I
+     193: istore        7
+     195: aload         6
+     197: iconst_2
+     198: aaload
+     199: iconst_0
+     200: iload         7
+     202: invokevirtual #33                 // Method java/lang/String.substring:(II)Ljava/lang/String;
+     205: astore        10
+     207: aload         6
+     209: iconst_2
+     210: aaload
+     211: iload         7
+     213: invokevirtual #34                 // Method java/lang/String.substring:(I)Ljava/lang/String;
+     216: ldc           #31                 // String /
+     218: ldc           #10                 // String
+     220: invokevirtual #11                 // Method java/lang/String.replace:(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+     223: astore        11
+     225: new           #35                 // class al/logger/client/wrapper/map/FieldMap
+     228: dup
+     229: aload         8
+     231: invokestatic  #27                 // Method getClassName:(Ljava/lang/String;)Ljava/lang/String;
+     234: aload         9
+     236: aload         10
+     238: invokestatic  #27                 // Method getClassName:(Ljava/lang/String;)Ljava/lang/String;
+     241: aload         11
+     243: invokespecial #36                 // Method al/logger/client/wrapper/map/FieldMap."<init>":(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     246: astore        12
+     248: aload_0
+     249: getfield      #4                  // Field maps:Ljava/util/List;
+     252: aload         12
+     254: invokeinterface #29,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     259: pop
+     260: aload         6
+     262: iconst_0
+     263: aaload
+     264: ldc           #37                 // String MD:
+     266: invokevirtual #25                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     269: ifeq          419
+     272: aload         6
+     274: iconst_1
+     275: aaload
+     276: ldc           #31                 // String /
+     278: invokevirtual #32                 // Method java/lang/String.lastIndexOf:(Ljava/lang/String;)I
+     281: istore        7
+     283: aload         6
+     285: iconst_1
+     286: aaload
+     287: iconst_0
+     288: iload         7
+     290: invokevirtual #33                 // Method java/lang/String.substring:(II)Ljava/lang/String;
+     293: astore        8
+     295: aload         6
+     297: iconst_1
+     298: aaload
+     299: iload         7
+     301: invokevirtual #34                 // Method java/lang/String.substring:(I)Ljava/lang/String;
+     304: ldc           #31                 // String /
+     306: ldc           #10                 // String
+     308: invokevirtual #11                 // Method java/lang/String.replace:(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+     311: astore        9
+     313: new           #38                 // class al/logger/client/wrapper/map/utils/Signature
+     316: dup
+     317: aload         6
+     319: iconst_2
+     320: aaload
+     321: invokespecial #39                 // Method al/logger/client/wrapper/map/utils/Signature."<init>":(Ljava/lang/String;)V
+     324: astore        10
+     326: aload         6
+     328: iconst_3
+     329: aaload
+     330: ldc           #31                 // String /
+     332: invokevirtual #32                 // Method java/lang/String.lastIndexOf:(Ljava/lang/String;)I
+     335: istore        7
+     337: aload         6
+     339: iconst_3
+     340: aaload
+     341: iconst_0
+     342: iload         7
+     344: invokevirtual #33                 // Method java/lang/String.substring:(II)Ljava/lang/String;
+     347: astore        11
+     349: aload         6
+     351: iconst_3
+     352: aaload
+     353: iload         7
+     355: invokevirtual #34                 // Method java/lang/String.substring:(I)Ljava/lang/String;
+     358: ldc           #31                 // String /
+     360: ldc           #10                 // String
+     362: invokevirtual #11                 // Method java/lang/String.replace:(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+     365: astore        12
+     367: new           #38                 // class al/logger/client/wrapper/map/utils/Signature
+     370: dup
+     371: aload         6
+     373: iconst_4
+     374: aaload
+     375: invokespecial #39                 // Method al/logger/client/wrapper/map/utils/Signature."<init>":(Ljava/lang/String;)V
+     378: astore        13
+     380: new           #40                 // class al/logger/client/wrapper/map/MethodMap
+     383: dup
+     384: aload         8
+     386: invokestatic  #27                 // Method getClassName:(Ljava/lang/String;)Ljava/lang/String;
+     389: aload         9
+     391: aload         10
+     393: aload         11
+     395: invokestatic  #27                 // Method getClassName:(Ljava/lang/String;)Ljava/lang/String;
+     398: aload         12
+     400: aload         13
+     402: invokespecial #41                 // Method al/logger/client/wrapper/map/MethodMap."<init>":(Ljava/lang/String;Ljava/lang/String;Lal/logger/client/wrapper/map/utils/Signature;Ljava/lang/String;Ljava/lang/String;Lal/logger/client/wrapper/map/utils/Signature;)V
+     405: astore        14
+     407: aload_0
+     408: getfield      #4                  // Field maps:Ljava/util/List;
+     411: aload         14
+     413: invokeinterface #29,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     418: pop
+     419: iinc          4, 1
+     422: goto          56
+     425: getstatic     #14                 // Field java/lang/System.out:Ljava/io/PrintStream;
+     428: ldc           #42                 // String Srg Parsed!
+     430: invokevirtual #22                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     433: return
+    LineNumberTable:
+      line 19: 0
+      line 20: 17
+      line 22: 48
+      line 23: 68
+      line 24: 77
+      line 25: 84
+      line 27: 96
+      line 28: 119
+      line 30: 131
+      line 31: 143
+      line 32: 154
+      line 33: 166
+      line 34: 184
+      line 35: 195
+      line 36: 207
+      line 37: 225
+      line 38: 248
+      line 40: 260
+      line 41: 272
+      line 42: 283
+      line 43: 295
+      line 44: 313
+      line 45: 326
+      line 46: 337
+      line 47: 349
+      line 48: 367
+      line 49: 380
+      line 50: 407
+      line 22: 419
+      line 54: 425
+      line 56: 433
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+        119      12     7    cm   Lal/logger/client/wrapper/map/ClassMap;
+        154     106     7  last   I
+        166      94     8 className   Ljava/lang/String;
+        184      76     9 fieldName   Ljava/lang/String;
+        207      53    10 classNameSrg   Ljava/lang/String;
+        225      35    11 fieldNameSrg   Ljava/lang/String;
+        248      12    12    fm   Lal/logger/client/wrapper/map/FieldMap;
+        283     136     7  last   I
+        295     124     8 className   Ljava/lang/String;
+        313     106     9 methodName   Ljava/lang/String;
+        326      93    10 signature   Lal/logger/client/wrapper/map/utils/Signature;
+        349      70    11 classNameSrg   Ljava/lang/String;
+        367      52    12 methodNameSrg   Ljava/lang/String;
+        380      39    13 signatureSrg   Lal/logger/client/wrapper/map/utils/Signature;
+        407      12    14    mm   Lal/logger/client/wrapper/map/MethodMap;
+         77     342     6     s   [Ljava/lang/String;
+         68     351     5  line   Ljava/lang/String;
+          0     434     0  this   Lal/logger/client/wrapper/map/MapParser;
+         17     417     1 lines   [Ljava/lang/String;
+
+  private static java.lang.String getClassName(java.lang.String);
+    Code:
+       0: aload_0
+       1: ldc           #31                 // String /
+       3: ldc           #43                 // String .
+       5: invokevirtual #11                 // Method java/lang/String.replace:(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+       8: ldc           #44                 // String $
+      10: ldc           #43                 // String .
+      12: invokevirtual #11                 // Method java/lang/String.replace:(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+      15: areturn
+    LineNumberTable:
+      line 58: 0
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+          0      16     0  name   Ljava/lang/String;
+
+  public java.util.List<al.logger.client.wrapper.map.Map> getMaps();
+    Code:
+       0: aload_0
+       1: getfield      #4                  // Field maps:Ljava/util/List;
+       4: areturn
+    LineNumberTable:
+      line 13: 0
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+          0       5     0  this   Lal/logger/client/wrapper/map/MapParser;
+}

@@ -1,0 +1,2717 @@
+Compiled from "BridgeManager.java"
+public class al.logger.client.bridge.BridgeManager {
+  private java.lang.Class<?> GuiScreenBridgeClass;
+
+  private java.lang.Class<?> IResourceBridgeClass;
+
+  private java.lang.Class<?> IResourceManagerBridgeClass;
+
+  private java.lang.Class<?> NoEventPacketClass;
+
+  private java.lang.reflect.Constructor<?> GuiScreenBridgeConstructor;
+
+  private java.lang.reflect.Constructor<?> IResourceBridgeConstructor;
+
+  private java.lang.reflect.Constructor<?> IResourceManagerConstructor;
+
+  private java.lang.reflect.Constructor<?> NoEventPacketConstructor;
+
+  public al.logger.client.bridge.BridgeManager();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: aconst_null
+       6: putfield      #2                  // Field GuiScreenBridgeClass:Ljava/lang/Class;
+       9: aload_0
+      10: aconst_null
+      11: putfield      #3                  // Field IResourceBridgeClass:Ljava/lang/Class;
+      14: aload_0
+      15: aconst_null
+      16: putfield      #4                  // Field IResourceManagerBridgeClass:Ljava/lang/Class;
+      19: aload_0
+      20: aconst_null
+      21: putfield      #5                  // Field NoEventPacketClass:Ljava/lang/Class;
+      24: aload_0
+      25: aconst_null
+      26: putfield      #6                  // Field GuiScreenBridgeConstructor:Ljava/lang/reflect/Constructor;
+      29: aload_0
+      30: aconst_null
+      31: putfield      #7                  // Field IResourceBridgeConstructor:Ljava/lang/reflect/Constructor;
+      34: aload_0
+      35: aconst_null
+      36: putfield      #8                  // Field IResourceManagerConstructor:Ljava/lang/reflect/Constructor;
+      39: aload_0
+      40: aconst_null
+      41: putfield      #9                  // Field NoEventPacketConstructor:Ljava/lang/reflect/Constructor;
+      44: return
+    LineNumberTable:
+      line 50: 0
+      line 32: 4
+      line 34: 9
+      line 36: 14
+      line 38: 19
+      line 40: 24
+      line 42: 29
+      line 44: 34
+      line 46: 39
+      line 52: 44
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+          0      45     0  this   Lal/logger/client/bridge/BridgeManager;
+
+  public void init();
+    Code:
+       0: invokestatic  #10                 // Method java/lang/Thread.currentThread:()Ljava/lang/Thread;
+       3: invokevirtual #11                 // Method java/lang/Thread.getStackTrace:()[Ljava/lang/StackTraceElement;
+       6: iconst_2
+       7: aaload
+       8: astore_1
+       9: invokestatic  #12                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+      12: invokevirtual #13                 // Method al/logger/client/Logger.isMySelfObf:()Z
+      15: ifeq          642
+      18: aload_1
+      19: invokevirtual #14                 // Method java/lang/StackTraceElement.isNativeMethod:()Z
+      22: ifeq          515
+      25: aload_1
+      26: invokevirtual #15                 // Method java/lang/StackTraceElement.getClassName:()Ljava/lang/String;
+      29: ldc           #16                 // class al/logger/client/LoggerWS
+      31: invokevirtual #17                 // Method java/lang/Class.getName:()Ljava/lang/String;
+      34: invokevirtual #18                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      37: ifeq          388
+      40: getstatic     #19                 // Field al/logger/client/LoggerWS.queue:Ljava/util/Queue;
+      43: invokeinterface #20,  1           // InterfaceMethod java/util/Queue.poll:()Ljava/lang/Object;
+      48: checkcast     #21                 // class java/lang/Exception
+      51: astore_2
+      52: aload_2
+      53: instanceof    #22                 // class al/logger/client/ui/bases/components/NextEx
+      56: ifeq          385
+      59: aload_2
+      60: checkcast     #22                 // class al/logger/client/ui/bases/components/NextEx
+      63: astore_3
+      64: aload_3
+      65: invokevirtual #23                 // Method al/logger/client/ui/bases/components/NextEx.getNote:()Ljava/lang/String;
+      68: iconst_0
+      69: invokevirtual #24                 // Method java/lang/String.charAt:(I)C
+      72: bipush        66
+      74: if_icmpne     246
+      77: getstatic     #19                 // Field al/logger/client/LoggerWS.queue:Ljava/util/Queue;
+      80: invokeinterface #25,  1           // InterfaceMethod java/util/Queue.size:()I
+      85: ifne          107
+      88: aload_3
+      89: ldc           #26                 // String M
+      91: invokevirtual #27                 // Method al/logger/client/ui/bases/components/NextEx.setNote:(Ljava/lang/String;)V
+      94: getstatic     #19                 // Field al/logger/client/LoggerWS.queue:Ljava/util/Queue;
+      97: aload_3
+      98: invokeinterface #28,  2           // InterfaceMethod java/util/Queue.offer:(Ljava/lang/Object;)Z
+     103: pop
+     104: goto          385
+     107: aconst_null
+     108: astore        4
+     110: ldc           #29                 // class sun/misc/Unsafe
+     112: ldc           #30                 // String theUnsafe
+     114: invokevirtual #31                 // Method java/lang/Class.getDeclaredField:(Ljava/lang/String;)Ljava/lang/reflect/Field;
+     117: astore        4
+     119: goto          134
+     122: astore        5
+     124: new           #33                 // class java/lang/RuntimeException
+     127: dup
+     128: aload         5
+     130: invokespecial #34                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+     133: athrow
+     134: aload         4
+     136: iconst_1
+     137: invokevirtual #35                 // Method java/lang/reflect/Field.setAccessible:(Z)V
+     140: aload         4
+     142: aconst_null
+     143: invokevirtual #36                 // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     146: checkcast     #29                 // class sun/misc/Unsafe
+     149: ldc2_w        #37                 // long 38389l
+     152: ldc2_w        #39                 // long 234242342l
+     155: invokevirtual #41                 // Method sun/misc/Unsafe.putAddress:(JJ)V
+     158: aload         4
+     160: aconst_null
+     161: invokevirtual #36                 // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     164: checkcast     #29                 // class sun/misc/Unsafe
+     167: ldc2_w        #42                 // long 324232l
+     170: ldc2_w        #44                 // long 23424l
+     173: invokevirtual #41                 // Method sun/misc/Unsafe.putAddress:(JJ)V
+     176: aload         4
+     178: aconst_null
+     179: invokevirtual #36                 // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     182: checkcast     #29                 // class sun/misc/Unsafe
+     185: ldc2_w        #46                 // long 423234l
+     188: ldc2_w        #48                 // long 234232l
+     191: invokevirtual #41                 // Method sun/misc/Unsafe.putAddress:(JJ)V
+     194: aload         4
+     196: aconst_null
+     197: invokevirtual #36                 // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     200: checkcast     #29                 // class sun/misc/Unsafe
+     203: ldc2_w        #50                 // long 42342l
+     206: ldc2_w        #52                 // long 4324l
+     209: invokevirtual #41                 // Method sun/misc/Unsafe.putAddress:(JJ)V
+     212: aload         4
+     214: aconst_null
+     215: invokevirtual #36                 // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     218: checkcast     #29                 // class sun/misc/Unsafe
+     221: ldc2_w        #54                 // long 5201314l
+     224: ldc2_w        #56                 // long 1114514l
+     227: invokevirtual #41                 // Method sun/misc/Unsafe.putAddress:(JJ)V
+     230: goto          245
+     233: astore        5
+     235: new           #33                 // class java/lang/RuntimeException
+     238: dup
+     239: aload         5
+     241: invokespecial #34                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+     244: athrow
+     245: return
+     246: aconst_null
+     247: astore        4
+     249: ldc           #29                 // class sun/misc/Unsafe
+     251: ldc           #30                 // String theUnsafe
+     253: invokevirtual #31                 // Method java/lang/Class.getDeclaredField:(Ljava/lang/String;)Ljava/lang/reflect/Field;
+     256: astore        4
+     258: goto          273
+     261: astore        5
+     263: new           #33                 // class java/lang/RuntimeException
+     266: dup
+     267: aload         5
+     269: invokespecial #34                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+     272: athrow
+     273: aload         4
+     275: iconst_1
+     276: invokevirtual #35                 // Method java/lang/reflect/Field.setAccessible:(Z)V
+     279: aload         4
+     281: aconst_null
+     282: invokevirtual #36                 // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     285: checkcast     #29                 // class sun/misc/Unsafe
+     288: ldc2_w        #37                 // long 38389l
+     291: ldc2_w        #39                 // long 234242342l
+     294: invokevirtual #41                 // Method sun/misc/Unsafe.putAddress:(JJ)V
+     297: aload         4
+     299: aconst_null
+     300: invokevirtual #36                 // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     303: checkcast     #29                 // class sun/misc/Unsafe
+     306: ldc2_w        #42                 // long 324232l
+     309: ldc2_w        #44                 // long 23424l
+     312: invokevirtual #41                 // Method sun/misc/Unsafe.putAddress:(JJ)V
+     315: aload         4
+     317: aconst_null
+     318: invokevirtual #36                 // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     321: checkcast     #29                 // class sun/misc/Unsafe
+     324: ldc2_w        #46                 // long 423234l
+     327: ldc2_w        #48                 // long 234232l
+     330: invokevirtual #41                 // Method sun/misc/Unsafe.putAddress:(JJ)V
+     333: aload         4
+     335: aconst_null
+     336: invokevirtual #36                 // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     339: checkcast     #29                 // class sun/misc/Unsafe
+     342: ldc2_w        #50                 // long 42342l
+     345: ldc2_w        #52                 // long 4324l
+     348: invokevirtual #41                 // Method sun/misc/Unsafe.putAddress:(JJ)V
+     351: aload         4
+     353: aconst_null
+     354: invokevirtual #36                 // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     357: checkcast     #29                 // class sun/misc/Unsafe
+     360: ldc2_w        #54                 // long 5201314l
+     363: ldc2_w        #56                 // long 1114514l
+     366: invokevirtual #41                 // Method sun/misc/Unsafe.putAddress:(JJ)V
+     369: goto          384
+     372: astore        5
+     374: new           #33                 // class java/lang/RuntimeException
+     377: dup
+     378: aload         5
+     380: invokespecial #34                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+     383: athrow
+     384: return
+     385: goto          782
+     388: aconst_null
+     389: astore_2
+     390: ldc           #29                 // class sun/misc/Unsafe
+     392: ldc           #30                 // String theUnsafe
+     394: invokevirtual #31                 // Method java/lang/Class.getDeclaredField:(Ljava/lang/String;)Ljava/lang/reflect/Field;
+     397: astore_2
+     398: goto          411
+     401: astore_3
+     402: new           #33                 // class java/lang/RuntimeException
+     405: dup
+     406: aload_3
+     407: invokespecial #34                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+     410: athrow
+     411: aload_2
+     412: iconst_1
+     413: invokevirtual #35                 // Method java/lang/reflect/Field.setAccessible:(Z)V
+     416: aload_2
+     417: aconst_null
+     418: invokevirtual #36                 // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     421: checkcast     #29                 // class sun/misc/Unsafe
+     424: ldc2_w        #37                 // long 38389l
+     427: ldc2_w        #39                 // long 234242342l
+     430: invokevirtual #41                 // Method sun/misc/Unsafe.putAddress:(JJ)V
+     433: aload_2
+     434: aconst_null
+     435: invokevirtual #36                 // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     438: checkcast     #29                 // class sun/misc/Unsafe
+     441: ldc2_w        #42                 // long 324232l
+     444: ldc2_w        #44                 // long 23424l
+     447: invokevirtual #41                 // Method sun/misc/Unsafe.putAddress:(JJ)V
+     450: aload_2
+     451: aconst_null
+     452: invokevirtual #36                 // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     455: checkcast     #29                 // class sun/misc/Unsafe
+     458: ldc2_w        #46                 // long 423234l
+     461: ldc2_w        #48                 // long 234232l
+     464: invokevirtual #41                 // Method sun/misc/Unsafe.putAddress:(JJ)V
+     467: aload_2
+     468: aconst_null
+     469: invokevirtual #36                 // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     472: checkcast     #29                 // class sun/misc/Unsafe
+     475: ldc2_w        #50                 // long 42342l
+     478: ldc2_w        #52                 // long 4324l
+     481: invokevirtual #41                 // Method sun/misc/Unsafe.putAddress:(JJ)V
+     484: aload_2
+     485: aconst_null
+     486: invokevirtual #36                 // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     489: checkcast     #29                 // class sun/misc/Unsafe
+     492: ldc2_w        #54                 // long 5201314l
+     495: ldc2_w        #56                 // long 1114514l
+     498: invokevirtual #41                 // Method sun/misc/Unsafe.putAddress:(JJ)V
+     501: goto          514
+     504: astore_3
+     505: new           #33                 // class java/lang/RuntimeException
+     508: dup
+     509: aload_3
+     510: invokespecial #34                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+     513: athrow
+     514: return
+     515: aconst_null
+     516: astore_2
+     517: ldc           #29                 // class sun/misc/Unsafe
+     519: ldc           #30                 // String theUnsafe
+     521: invokevirtual #31                 // Method java/lang/Class.getDeclaredField:(Ljava/lang/String;)Ljava/lang/reflect/Field;
+     524: astore_2
+     525: goto          538
+     528: astore_3
+     529: new           #33                 // class java/lang/RuntimeException
+     532: dup
+     533: aload_3
+     534: invokespecial #34                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+     537: athrow
+     538: aload_2
+     539: iconst_1
+     540: invokevirtual #35                 // Method java/lang/reflect/Field.setAccessible:(Z)V
+     543: aload_2
+     544: aconst_null
+     545: invokevirtual #36                 // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     548: checkcast     #29                 // class sun/misc/Unsafe
+     551: ldc2_w        #37                 // long 38389l
+     554: ldc2_w        #39                 // long 234242342l
+     557: invokevirtual #41                 // Method sun/misc/Unsafe.putAddress:(JJ)V
+     560: aload_2
+     561: aconst_null
+     562: invokevirtual #36                 // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     565: checkcast     #29                 // class sun/misc/Unsafe
+     568: ldc2_w        #42                 // long 324232l
+     571: ldc2_w        #44                 // long 23424l
+     574: invokevirtual #41                 // Method sun/misc/Unsafe.putAddress:(JJ)V
+     577: aload_2
+     578: aconst_null
+     579: invokevirtual #36                 // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     582: checkcast     #29                 // class sun/misc/Unsafe
+     585: ldc2_w        #46                 // long 423234l
+     588: ldc2_w        #48                 // long 234232l
+     591: invokevirtual #41                 // Method sun/misc/Unsafe.putAddress:(JJ)V
+     594: aload_2
+     595: aconst_null
+     596: invokevirtual #36                 // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     599: checkcast     #29                 // class sun/misc/Unsafe
+     602: ldc2_w        #50                 // long 42342l
+     605: ldc2_w        #52                 // long 4324l
+     608: invokevirtual #41                 // Method sun/misc/Unsafe.putAddress:(JJ)V
+     611: aload_2
+     612: aconst_null
+     613: invokevirtual #36                 // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     616: checkcast     #29                 // class sun/misc/Unsafe
+     619: ldc2_w        #54                 // long 5201314l
+     622: ldc2_w        #56                 // long 1114514l
+     625: invokevirtual #41                 // Method sun/misc/Unsafe.putAddress:(JJ)V
+     628: goto          641
+     631: astore_3
+     632: new           #33                 // class java/lang/RuntimeException
+     635: dup
+     636: aload_3
+     637: invokespecial #34                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+     640: athrow
+     641: return
+     642: ldc           #59                 // String al.logger.client.features.modules.ModuleManager
+     644: invokestatic  #60                 // Method java/lang/Class.forName:(Ljava/lang/String;)Ljava/lang/Class;
+     647: pop
+     648: goto          782
+     651: astore_2
+     652: aconst_null
+     653: astore_3
+     654: ldc           #29                 // class sun/misc/Unsafe
+     656: ldc           #30                 // String theUnsafe
+     658: invokevirtual #31                 // Method java/lang/Class.getDeclaredField:(Ljava/lang/String;)Ljava/lang/reflect/Field;
+     661: astore_3
+     662: goto          677
+     665: astore        4
+     667: new           #33                 // class java/lang/RuntimeException
+     670: dup
+     671: aload         4
+     673: invokespecial #34                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+     676: athrow
+     677: aload_3
+     678: iconst_1
+     679: invokevirtual #35                 // Method java/lang/reflect/Field.setAccessible:(Z)V
+     682: aload_3
+     683: aconst_null
+     684: invokevirtual #36                 // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     687: checkcast     #29                 // class sun/misc/Unsafe
+     690: ldc2_w        #37                 // long 38389l
+     693: ldc2_w        #39                 // long 234242342l
+     696: invokevirtual #41                 // Method sun/misc/Unsafe.putAddress:(JJ)V
+     699: aload_3
+     700: aconst_null
+     701: invokevirtual #36                 // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     704: checkcast     #29                 // class sun/misc/Unsafe
+     707: ldc2_w        #42                 // long 324232l
+     710: ldc2_w        #44                 // long 23424l
+     713: invokevirtual #41                 // Method sun/misc/Unsafe.putAddress:(JJ)V
+     716: aload_3
+     717: aconst_null
+     718: invokevirtual #36                 // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     721: checkcast     #29                 // class sun/misc/Unsafe
+     724: ldc2_w        #46                 // long 423234l
+     727: ldc2_w        #48                 // long 234232l
+     730: invokevirtual #41                 // Method sun/misc/Unsafe.putAddress:(JJ)V
+     733: aload_3
+     734: aconst_null
+     735: invokevirtual #36                 // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     738: checkcast     #29                 // class sun/misc/Unsafe
+     741: ldc2_w        #50                 // long 42342l
+     744: ldc2_w        #52                 // long 4324l
+     747: invokevirtual #41                 // Method sun/misc/Unsafe.putAddress:(JJ)V
+     750: aload_3
+     751: aconst_null
+     752: invokevirtual #36                 // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     755: checkcast     #29                 // class sun/misc/Unsafe
+     758: ldc2_w        #54                 // long 5201314l
+     761: ldc2_w        #56                 // long 1114514l
+     764: invokevirtual #41                 // Method sun/misc/Unsafe.putAddress:(JJ)V
+     767: goto          782
+     770: astore        4
+     772: new           #33                 // class java/lang/RuntimeException
+     775: dup
+     776: aload         4
+     778: invokespecial #34                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+     781: athrow
+     782: aload_0
+     783: aload_0
+     784: invokespecial #61                 // Method generateGuiScreenBridge:()Ljava/lang/Class;
+     787: putfield      #2                  // Field GuiScreenBridgeClass:Ljava/lang/Class;
+     790: aload_0
+     791: aload_0
+     792: invokespecial #62                 // Method generateIResourceBridge:()Ljava/lang/Class;
+     795: putfield      #3                  // Field IResourceBridgeClass:Ljava/lang/Class;
+     798: aload_0
+     799: aload_0
+     800: invokespecial #63                 // Method generateIResourceManagerBridge:()Ljava/lang/Class;
+     803: putfield      #4                  // Field IResourceManagerBridgeClass:Ljava/lang/Class;
+     806: aload_0
+     807: aload_0
+     808: invokespecial #64                 // Method generateNoEventPacket:()Ljava/lang/Class;
+     811: putfield      #5                  // Field NoEventPacketClass:Ljava/lang/Class;
+     814: aload_0
+     815: aload_0
+     816: getfield      #2                  // Field GuiScreenBridgeClass:Ljava/lang/Class;
+     819: iconst_1
+     820: anewarray     #65                 // class java/lang/Class
+     823: dup
+     824: iconst_0
+     825: ldc           #66                 // class al/logger/client/bridge/bridges/GuiScreenBridge
+     827: aastore
+     828: invokestatic  #67                 // Method al/logger/client/utils/ReflectUtil.findConstructor:(Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+     831: putfield      #6                  // Field GuiScreenBridgeConstructor:Ljava/lang/reflect/Constructor;
+     834: aload_0
+     835: aload_0
+     836: getfield      #3                  // Field IResourceBridgeClass:Ljava/lang/Class;
+     839: iconst_1
+     840: anewarray     #65                 // class java/lang/Class
+     843: dup
+     844: iconst_0
+     845: ldc           #68                 // class al/logger/client/bridge/bridges/IResourceBridge
+     847: aastore
+     848: invokestatic  #67                 // Method al/logger/client/utils/ReflectUtil.findConstructor:(Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+     851: putfield      #7                  // Field IResourceBridgeConstructor:Ljava/lang/reflect/Constructor;
+     854: aload_0
+     855: aload_0
+     856: getfield      #4                  // Field IResourceManagerBridgeClass:Ljava/lang/Class;
+     859: iconst_1
+     860: anewarray     #65                 // class java/lang/Class
+     863: dup
+     864: iconst_0
+     865: ldc           #69                 // class al/logger/client/bridge/bridges/IResourceManagerBridge
+     867: aastore
+     868: invokestatic  #67                 // Method al/logger/client/utils/ReflectUtil.findConstructor:(Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+     871: putfield      #8                  // Field IResourceManagerConstructor:Ljava/lang/reflect/Constructor;
+     874: aload_0
+     875: aload_0
+     876: getfield      #5                  // Field NoEventPacketClass:Ljava/lang/Class;
+     879: iconst_1
+     880: anewarray     #65                 // class java/lang/Class
+     883: dup
+     884: iconst_0
+     885: ldc           #70                 // class al/logger/client/wrapper/LoggerMC/network/Packet
+     887: aastore
+     888: invokestatic  #67                 // Method al/logger/client/utils/ReflectUtil.findConstructor:(Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+     891: putfield      #9                  // Field NoEventPacketConstructor:Ljava/lang/reflect/Constructor;
+     894: return
+    Exception table:
+       from    to  target type
+         110   119   122   Class java/lang/NoSuchFieldException
+         140   230   233   Class java/lang/IllegalAccessException
+         249   258   261   Class java/lang/NoSuchFieldException
+         279   369   372   Class java/lang/IllegalAccessException
+         390   398   401   Class java/lang/NoSuchFieldException
+         416   501   504   Class java/lang/IllegalAccessException
+         517   525   528   Class java/lang/NoSuchFieldException
+         543   628   631   Class java/lang/IllegalAccessException
+         642   648   651   Class java/lang/Exception
+         654   662   665   Class java/lang/NoSuchFieldException
+         682   767   770   Class java/lang/IllegalAccessException
+    LineNumberTable:
+      line 55: 0
+      line 56: 9
+      line 57: 18
+      line 58: 25
+      line 59: 40
+      line 60: 52
+      line 61: 59
+      line 63: 64
+      line 64: 77
+      line 65: 88
+      line 66: 94
+      line 69: 107
+      line 71: 110
+      line 74: 119
+      line 72: 122
+      line 73: 124
+      line 75: 134
+      line 77: 140
+      line 78: 158
+      line 79: 176
+      line 80: 194
+      line 81: 212
+      line 84: 230
+      line 82: 233
+      line 83: 235
+      line 85: 245
+      line 89: 246
+      line 91: 249
+      line 94: 258
+      line 92: 261
+      line 93: 263
+      line 95: 273
+      line 97: 279
+      line 98: 297
+      line 99: 315
+      line 100: 333
+      line 101: 351
+      line 104: 369
+      line 102: 372
+      line 103: 374
+      line 105: 384
+      line 108: 385
+      line 110: 388
+      line 112: 390
+      line 115: 398
+      line 113: 401
+      line 114: 402
+      line 116: 411
+      line 118: 416
+      line 119: 433
+      line 120: 450
+      line 121: 467
+      line 122: 484
+      line 125: 501
+      line 123: 504
+      line 124: 505
+      line 126: 514
+      line 130: 515
+      line 132: 517
+      line 135: 525
+      line 133: 528
+      line 134: 529
+      line 136: 538
+      line 138: 543
+      line 139: 560
+      line 140: 577
+      line 141: 594
+      line 142: 611
+      line 145: 628
+      line 143: 631
+      line 144: 632
+      line 146: 641
+      line 150: 642
+      line 168: 648
+      line 151: 651
+      line 152: 652
+      line 154: 654
+      line 157: 662
+      line 155: 665
+      line 156: 667
+      line 158: 677
+      line 160: 682
+      line 161: 699
+      line 162: 716
+      line 163: 733
+      line 164: 750
+      line 167: 767
+      line 165: 770
+      line 166: 772
+      line 171: 782
+      line 172: 790
+      line 173: 798
+      line 174: 806
+      line 175: 814
+      line 176: 834
+      line 177: 854
+      line 178: 874
+      line 179: 894
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+        124      10     5     e   Ljava/lang/NoSuchFieldException;
+        235      10     5     e   Ljava/lang/IllegalAccessException;
+        110     136     4     F   Ljava/lang/reflect/Field;
+        263      10     5     e   Ljava/lang/NoSuchFieldException;
+        374      10     5     e   Ljava/lang/IllegalAccessException;
+        249     136     4     F   Ljava/lang/reflect/Field;
+         64     321     3   tmp   Lal/logger/client/ui/bases/components/NextEx;
+         52     333     2   exp   Ljava/lang/Exception;
+        402       9     3     e   Ljava/lang/NoSuchFieldException;
+        505       9     3     e   Ljava/lang/IllegalAccessException;
+        390     125     2     F   Ljava/lang/reflect/Field;
+        529       9     3     e   Ljava/lang/NoSuchFieldException;
+        632       9     3     e   Ljava/lang/IllegalAccessException;
+        517     125     2     F   Ljava/lang/reflect/Field;
+        667      10     4     e   Ljava/lang/NoSuchFieldException;
+        772      10     4     e   Ljava/lang/IllegalAccessException;
+        654     128     3     F   Ljava/lang/reflect/Field;
+        652     130     2    ex   Ljava/lang/Exception;
+          0     895     0  this   Lal/logger/client/bridge/BridgeManager;
+          9     886     1 stackTraceElement   Ljava/lang/StackTraceElement;
+
+  private java.lang.Class<?> generateNoEventPacket();
+    Code:
+       0: new           #71                 // class java/lang/StringBuilder
+       3: dup
+       4: invokespecial #72                 // Method java/lang/StringBuilder."<init>":()V
+       7: ldc           #73                 // String al.logger.client.network.
+       9: invokevirtual #74                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      12: bipush        20
+      14: invokestatic  #75                 // Method createRandomString:(I)Ljava/lang/String;
+      17: invokevirtual #74                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      20: invokevirtual #76                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      23: astore_1
+      24: aload_1
+      25: ldc           #77                 // String .
+      27: ldc           #78                 // String /
+      29: invokevirtual #79                 // Method java/lang/String.replace:(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+      32: astore_2
+      33: bipush        20
+      35: invokestatic  #75                 // Method createRandomString:(I)Ljava/lang/String;
+      38: astore_3
+      39: ldc           #80                 // class java/lang/Object
+      41: astore        4
+      43: new           #81                 // class al/logger/libs/asm/ClassWriter
+      46: dup
+      47: iconst_2
+      48: invokespecial #82                 // Method al/logger/libs/asm/ClassWriter."<init>":(I)V
+      51: astore        5
+      53: aload         5
+      55: bipush        52
+      57: iconst_1
+      58: aload_2
+      59: aconst_null
+      60: aload         4
+      62: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+      65: iconst_1
+      66: anewarray     #85                 // class java/lang/String
+      69: dup
+      70: iconst_0
+      71: getstatic     #86                 // Field al/logger/client/wrapper/LoggerMC/network/Packet.PacketClass:Ljava/lang/Class;
+      74: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+      77: aastore
+      78: invokevirtual #87                 // Method al/logger/libs/asm/ClassWriter.visit:(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V
+      81: aload         5
+      83: iconst_2
+      84: aload_3
+      85: ldc           #70                 // class al/logger/client/wrapper/LoggerMC/network/Packet
+      87: invokestatic  #88                 // Method al/logger/libs/asm/Type.getDescriptor:(Ljava/lang/Class;)Ljava/lang/String;
+      90: aconst_null
+      91: aconst_null
+      92: invokevirtual #89                 // Method al/logger/libs/asm/ClassWriter.visitField:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)Lal/logger/libs/asm/FieldVisitor;
+      95: pop
+      96: aload         5
+      98: iconst_1
+      99: ldc           #90                 // String <init>
+     101: getstatic     #91                 // Field al/logger/libs/asm/Type.VOID_TYPE:Lal/logger/libs/asm/Type;
+     104: iconst_1
+     105: anewarray     #92                 // class al/logger/libs/asm/Type
+     108: dup
+     109: iconst_0
+     110: ldc           #70                 // class al/logger/client/wrapper/LoggerMC/network/Packet
+     112: invokestatic  #93                 // Method al/logger/libs/asm/Type.getType:(Ljava/lang/Class;)Lal/logger/libs/asm/Type;
+     115: aastore
+     116: invokestatic  #94                 // Method al/logger/libs/asm/Type.getMethodDescriptor:(Lal/logger/libs/asm/Type;[Lal/logger/libs/asm/Type;)Ljava/lang/String;
+     119: aconst_null
+     120: aconst_null
+     121: invokevirtual #95                 // Method al/logger/libs/asm/ClassWriter.visitMethod:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Lal/logger/libs/asm/MethodVisitor;
+     124: astore        6
+     126: aload         6
+     128: bipush        25
+     130: iconst_0
+     131: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     134: aload         6
+     136: sipush        183
+     139: aload         4
+     141: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     144: ldc           #90                 // String <init>
+     146: ldc           #97                 // String ()V
+     148: invokevirtual #98                 // Method al/logger/libs/asm/MethodVisitor.visitMethodInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     151: aload         6
+     153: bipush        25
+     155: iconst_0
+     156: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     159: aload         6
+     161: bipush        25
+     163: iconst_1
+     164: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     167: aload         6
+     169: sipush        181
+     172: aload_2
+     173: aload_3
+     174: ldc           #70                 // class al/logger/client/wrapper/LoggerMC/network/Packet
+     176: invokestatic  #88                 // Method al/logger/libs/asm/Type.getDescriptor:(Ljava/lang/Class;)Ljava/lang/String;
+     179: invokevirtual #99                 // Method al/logger/libs/asm/MethodVisitor.visitFieldInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     182: aload         6
+     184: sipush        177
+     187: invokevirtual #100                // Method al/logger/libs/asm/MethodVisitor.visitInsn:(I)V
+     190: aload         6
+     192: invokevirtual #101                // Method al/logger/libs/asm/MethodVisitor.visitEnd:()V
+     195: aload         5
+     197: iconst_1
+     198: ldc           #102                // String getPacket
+     200: ldc           #70                 // class al/logger/client/wrapper/LoggerMC/network/Packet
+     202: invokestatic  #93                 // Method al/logger/libs/asm/Type.getType:(Ljava/lang/Class;)Lal/logger/libs/asm/Type;
+     205: iconst_0
+     206: anewarray     #92                 // class al/logger/libs/asm/Type
+     209: invokestatic  #94                 // Method al/logger/libs/asm/Type.getMethodDescriptor:(Lal/logger/libs/asm/Type;[Lal/logger/libs/asm/Type;)Ljava/lang/String;
+     212: aconst_null
+     213: aconst_null
+     214: invokevirtual #95                 // Method al/logger/libs/asm/ClassWriter.visitMethod:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Lal/logger/libs/asm/MethodVisitor;
+     217: astore        6
+     219: aload         6
+     221: bipush        25
+     223: iconst_0
+     224: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     227: aload         6
+     229: sipush        180
+     232: aload_2
+     233: aload_3
+     234: ldc           #70                 // class al/logger/client/wrapper/LoggerMC/network/Packet
+     236: invokestatic  #88                 // Method al/logger/libs/asm/Type.getDescriptor:(Ljava/lang/Class;)Ljava/lang/String;
+     239: invokevirtual #99                 // Method al/logger/libs/asm/MethodVisitor.visitFieldInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     242: aload         6
+     244: sipush        176
+     247: invokevirtual #100                // Method al/logger/libs/asm/MethodVisitor.visitInsn:(I)V
+     250: aload         6
+     252: invokevirtual #101                // Method al/logger/libs/asm/MethodVisitor.visitEnd:()V
+     255: aload         5
+     257: iconst_1
+     258: getstatic     #103                // Field al/logger/client/wrapper/LoggerMC/network/Packet.processPacket:Ljava/lang/reflect/Method;
+     261: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     264: getstatic     #103                // Field al/logger/client/wrapper/LoggerMC/network/Packet.processPacket:Ljava/lang/reflect/Method;
+     267: invokestatic  #105                // Method al/logger/libs/asm/Type.getMethodDescriptor:(Ljava/lang/reflect/Method;)Ljava/lang/String;
+     270: aconst_null
+     271: aconst_null
+     272: invokevirtual #95                 // Method al/logger/libs/asm/ClassWriter.visitMethod:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Lal/logger/libs/asm/MethodVisitor;
+     275: astore        6
+     277: aload         6
+     279: sipush        177
+     282: invokevirtual #100                // Method al/logger/libs/asm/MethodVisitor.visitInsn:(I)V
+     285: aload         6
+     287: invokevirtual #101                // Method al/logger/libs/asm/MethodVisitor.visitEnd:()V
+     290: aload         5
+     292: iconst_1
+     293: getstatic     #106                // Field al/logger/client/wrapper/LoggerMC/network/Packet.readPacketData:Ljava/lang/reflect/Method;
+     296: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     299: getstatic     #106                // Field al/logger/client/wrapper/LoggerMC/network/Packet.readPacketData:Ljava/lang/reflect/Method;
+     302: invokestatic  #105                // Method al/logger/libs/asm/Type.getMethodDescriptor:(Ljava/lang/reflect/Method;)Ljava/lang/String;
+     305: aconst_null
+     306: aconst_null
+     307: invokevirtual #95                 // Method al/logger/libs/asm/ClassWriter.visitMethod:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Lal/logger/libs/asm/MethodVisitor;
+     310: astore        6
+     312: aload         6
+     314: sipush        177
+     317: invokevirtual #100                // Method al/logger/libs/asm/MethodVisitor.visitInsn:(I)V
+     320: aload         6
+     322: invokevirtual #101                // Method al/logger/libs/asm/MethodVisitor.visitEnd:()V
+     325: aload         5
+     327: iconst_1
+     328: getstatic     #107                // Field al/logger/client/wrapper/LoggerMC/network/Packet.writePacketData:Ljava/lang/reflect/Method;
+     331: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     334: getstatic     #107                // Field al/logger/client/wrapper/LoggerMC/network/Packet.writePacketData:Ljava/lang/reflect/Method;
+     337: invokestatic  #105                // Method al/logger/libs/asm/Type.getMethodDescriptor:(Ljava/lang/reflect/Method;)Ljava/lang/String;
+     340: aconst_null
+     341: aconst_null
+     342: invokevirtual #95                 // Method al/logger/libs/asm/ClassWriter.visitMethod:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Lal/logger/libs/asm/MethodVisitor;
+     345: astore        6
+     347: aload         6
+     349: sipush        177
+     352: invokevirtual #100                // Method al/logger/libs/asm/MethodVisitor.visitInsn:(I)V
+     355: aload         6
+     357: invokevirtual #101                // Method al/logger/libs/asm/MethodVisitor.visitEnd:()V
+     360: aload         5
+     362: invokevirtual #108                // Method al/logger/libs/asm/ClassWriter.toByteArray:()[B
+     365: astore        6
+     367: new           #109                // class al/logger/libs/asm/ClassReader
+     370: dup
+     371: aload         6
+     373: invokespecial #110                // Method al/logger/libs/asm/ClassReader."<init>":([B)V
+     376: astore        7
+     378: new           #111                // class al/logger/libs/asm/tree/ClassNode
+     381: dup
+     382: invokespecial #112                // Method al/logger/libs/asm/tree/ClassNode."<init>":()V
+     385: astore        8
+     387: aload         7
+     389: aload         8
+     391: iconst_0
+     392: invokevirtual #113                // Method al/logger/libs/asm/ClassReader.accept:(Lal/logger/libs/asm/ClassVisitor;I)V
+     395: new           #81                 // class al/logger/libs/asm/ClassWriter
+     398: dup
+     399: iconst_2
+     400: invokespecial #82                 // Method al/logger/libs/asm/ClassWriter."<init>":(I)V
+     403: astore        9
+     405: aload         7
+     407: aload         9
+     409: iconst_0
+     410: invokevirtual #113                // Method al/logger/libs/asm/ClassReader.accept:(Lal/logger/libs/asm/ClassVisitor;I)V
+     413: aload         9
+     415: invokevirtual #108                // Method al/logger/libs/asm/ClassWriter.toByteArray:()[B
+     418: astore        6
+     420: invokestatic  #12                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     423: invokevirtual #114                // Method al/logger/client/Logger.getAgent:()Lal/logger/client/agent/Agent;
+     426: ldc           #66                 // class al/logger/client/bridge/bridges/GuiScreenBridge
+     428: invokevirtual #115                // Method java/lang/Class.getClassLoader:()Ljava/lang/ClassLoader;
+     431: aload_1
+     432: aload         6
+     434: invokeinterface #116,  4          // InterfaceMethod al/logger/client/agent/Agent.defineClass:(Ljava/lang/ClassLoader;Ljava/lang/String;[B)Ljava/lang/Class;
+     439: astore        10
+     441: aload         10
+     443: areturn
+    LineNumberTable:
+      line 182: 0
+      line 183: 24
+      line 184: 33
+      line 185: 39
+      line 186: 43
+      line 187: 53
+      line 188: 81
+      line 190: 96
+      line 192: 126
+      line 193: 134
+      line 194: 151
+      line 195: 159
+      line 196: 167
+      line 197: 182
+      line 199: 190
+      line 202: 195
+      line 204: 219
+      line 205: 227
+      line 206: 242
+      line 208: 250
+      line 211: 255
+      line 213: 277
+      line 215: 285
+      line 218: 290
+      line 220: 312
+      line 222: 320
+      line 225: 325
+      line 227: 347
+      line 229: 355
+      line 231: 360
+      line 232: 367
+      line 233: 378
+      line 234: 387
+      line 235: 395
+      line 236: 405
+      line 237: 413
+      line 238: 420
+      line 239: 441
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+        126      69     6  init   Lal/logger/libs/asm/MethodVisitor;
+        219      36     6 getPacket   Lal/logger/libs/asm/MethodVisitor;
+        277      13     6 processPacket   Lal/logger/libs/asm/MethodVisitor;
+        312      13     6 readPacketData   Lal/logger/libs/asm/MethodVisitor;
+        347      13     6 writePacketData   Lal/logger/libs/asm/MethodVisitor;
+          0     444     0  this   Lal/logger/client/bridge/BridgeManager;
+         24     420     1  name   Ljava/lang/String;
+         33     411     2 internalName   Ljava/lang/String;
+         39     405     3 wrappedPacket   Ljava/lang/String;
+         43     401     4 superClass   Ljava/lang/Class;
+         53     391     5    cw   Lal/logger/libs/asm/ClassWriter;
+        367      77     6 bytes   [B
+        378      66     7    cr   Lal/logger/libs/asm/ClassReader;
+        387      57     8    cn   Lal/logger/libs/asm/tree/ClassNode;
+        405      39     9   cw2   Lal/logger/libs/asm/ClassWriter;
+        441       3    10 bridge   Ljava/lang/Class;
+
+  private java.lang.Class<?> generateIResourceManagerBridge();
+    Code:
+       0: new           #71                 // class java/lang/StringBuilder
+       3: dup
+       4: invokespecial #72                 // Method java/lang/StringBuilder."<init>":()V
+       7: ldc           #117                // String al.logger.client.resource.
+       9: invokevirtual #74                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      12: bipush        20
+      14: invokestatic  #75                 // Method createRandomString:(I)Ljava/lang/String;
+      17: invokevirtual #74                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      20: invokevirtual #76                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      23: astore_1
+      24: aload_1
+      25: ldc           #77                 // String .
+      27: ldc           #78                 // String /
+      29: invokevirtual #79                 // Method java/lang/String.replace:(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+      32: astore_2
+      33: bipush        20
+      35: invokestatic  #75                 // Method createRandomString:(I)Ljava/lang/String;
+      38: astore_3
+      39: ldc           #80                 // class java/lang/Object
+      41: astore        4
+      43: new           #81                 // class al/logger/libs/asm/ClassWriter
+      46: dup
+      47: iconst_2
+      48: invokespecial #82                 // Method al/logger/libs/asm/ClassWriter."<init>":(I)V
+      51: astore        5
+      53: aload         5
+      55: bipush        52
+      57: iconst_1
+      58: aload_2
+      59: aconst_null
+      60: aload         4
+      62: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+      65: iconst_1
+      66: anewarray     #85                 // class java/lang/String
+      69: dup
+      70: iconst_0
+      71: getstatic     #118                // Field al/logger/client/wrapper/LoggerMC/resource/IResourceManager.IResourceManagerClass:Ljava/lang/Class;
+      74: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+      77: aastore
+      78: invokevirtual #87                 // Method al/logger/libs/asm/ClassWriter.visit:(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V
+      81: aload         5
+      83: iconst_2
+      84: aload_3
+      85: ldc           #69                 // class al/logger/client/bridge/bridges/IResourceManagerBridge
+      87: invokestatic  #88                 // Method al/logger/libs/asm/Type.getDescriptor:(Ljava/lang/Class;)Ljava/lang/String;
+      90: aconst_null
+      91: aconst_null
+      92: invokevirtual #89                 // Method al/logger/libs/asm/ClassWriter.visitField:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)Lal/logger/libs/asm/FieldVisitor;
+      95: pop
+      96: aload         5
+      98: iconst_1
+      99: ldc           #90                 // String <init>
+     101: getstatic     #91                 // Field al/logger/libs/asm/Type.VOID_TYPE:Lal/logger/libs/asm/Type;
+     104: iconst_1
+     105: anewarray     #92                 // class al/logger/libs/asm/Type
+     108: dup
+     109: iconst_0
+     110: ldc           #69                 // class al/logger/client/bridge/bridges/IResourceManagerBridge
+     112: invokestatic  #93                 // Method al/logger/libs/asm/Type.getType:(Ljava/lang/Class;)Lal/logger/libs/asm/Type;
+     115: aastore
+     116: invokestatic  #94                 // Method al/logger/libs/asm/Type.getMethodDescriptor:(Lal/logger/libs/asm/Type;[Lal/logger/libs/asm/Type;)Ljava/lang/String;
+     119: aconst_null
+     120: aconst_null
+     121: invokevirtual #95                 // Method al/logger/libs/asm/ClassWriter.visitMethod:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Lal/logger/libs/asm/MethodVisitor;
+     124: astore        6
+     126: aload         6
+     128: bipush        25
+     130: iconst_0
+     131: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     134: aload         6
+     136: sipush        183
+     139: aload         4
+     141: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     144: ldc           #90                 // String <init>
+     146: ldc           #97                 // String ()V
+     148: invokevirtual #98                 // Method al/logger/libs/asm/MethodVisitor.visitMethodInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     151: aload         6
+     153: bipush        25
+     155: iconst_0
+     156: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     159: aload         6
+     161: bipush        25
+     163: iconst_1
+     164: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     167: aload         6
+     169: sipush        181
+     172: aload_2
+     173: aload_3
+     174: ldc           #69                 // class al/logger/client/bridge/bridges/IResourceManagerBridge
+     176: invokestatic  #88                 // Method al/logger/libs/asm/Type.getDescriptor:(Ljava/lang/Class;)Ljava/lang/String;
+     179: invokevirtual #99                 // Method al/logger/libs/asm/MethodVisitor.visitFieldInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     182: aload         6
+     184: sipush        177
+     187: invokevirtual #100                // Method al/logger/libs/asm/MethodVisitor.visitInsn:(I)V
+     190: aload         6
+     192: invokevirtual #101                // Method al/logger/libs/asm/MethodVisitor.visitEnd:()V
+     195: aload         5
+     197: iconst_1
+     198: getstatic     #119                // Field al/logger/client/wrapper/LoggerMC/resource/IResourceManager.getResourceDomains:Ljava/lang/reflect/Method;
+     201: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     204: getstatic     #119                // Field al/logger/client/wrapper/LoggerMC/resource/IResourceManager.getResourceDomains:Ljava/lang/reflect/Method;
+     207: invokestatic  #105                // Method al/logger/libs/asm/Type.getMethodDescriptor:(Ljava/lang/reflect/Method;)Ljava/lang/String;
+     210: aconst_null
+     211: aconst_null
+     212: invokevirtual #95                 // Method al/logger/libs/asm/ClassWriter.visitMethod:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Lal/logger/libs/asm/MethodVisitor;
+     215: astore        6
+     217: aload         6
+     219: bipush        25
+     221: iconst_0
+     222: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     225: aload         6
+     227: sipush        180
+     230: aload_2
+     231: aload_3
+     232: ldc           #69                 // class al/logger/client/bridge/bridges/IResourceManagerBridge
+     234: invokestatic  #88                 // Method al/logger/libs/asm/Type.getDescriptor:(Ljava/lang/Class;)Ljava/lang/String;
+     237: invokevirtual #99                 // Method al/logger/libs/asm/MethodVisitor.visitFieldInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     240: aload         6
+     242: sipush        182
+     245: ldc           #69                 // class al/logger/client/bridge/bridges/IResourceManagerBridge
+     247: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     250: ldc           #69                 // class al/logger/client/bridge/bridges/IResourceManagerBridge
+     252: ldc           #120                // String getResourceDomains
+     254: invokestatic  #121                // Method al/logger/client/utils/obfuscate/ObfuscateHelper.targetObfuscatedMethod:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;
+     257: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     260: ldc           #69                 // class al/logger/client/bridge/bridges/IResourceManagerBridge
+     262: ldc           #120                // String getResourceDomains
+     264: invokestatic  #121                // Method al/logger/client/utils/obfuscate/ObfuscateHelper.targetObfuscatedMethod:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;
+     267: invokestatic  #105                // Method al/logger/libs/asm/Type.getMethodDescriptor:(Ljava/lang/reflect/Method;)Ljava/lang/String;
+     270: invokevirtual #98                 // Method al/logger/libs/asm/MethodVisitor.visitMethodInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     273: aload         6
+     275: sipush        176
+     278: invokevirtual #100                // Method al/logger/libs/asm/MethodVisitor.visitInsn:(I)V
+     281: aload         6
+     283: invokevirtual #101                // Method al/logger/libs/asm/MethodVisitor.visitEnd:()V
+     286: aload         5
+     288: iconst_1
+     289: getstatic     #122                // Field al/logger/client/wrapper/LoggerMC/resource/IResourceManager.getResource:Ljava/lang/reflect/Method;
+     292: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     295: getstatic     #122                // Field al/logger/client/wrapper/LoggerMC/resource/IResourceManager.getResource:Ljava/lang/reflect/Method;
+     298: invokestatic  #105                // Method al/logger/libs/asm/Type.getMethodDescriptor:(Ljava/lang/reflect/Method;)Ljava/lang/String;
+     301: aconst_null
+     302: aconst_null
+     303: invokevirtual #95                 // Method al/logger/libs/asm/ClassWriter.visitMethod:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Lal/logger/libs/asm/MethodVisitor;
+     306: astore        6
+     308: aload         6
+     310: bipush        25
+     312: iconst_0
+     313: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     316: aload         6
+     318: sipush        180
+     321: aload_2
+     322: aload_3
+     323: ldc           #69                 // class al/logger/client/bridge/bridges/IResourceManagerBridge
+     325: invokestatic  #88                 // Method al/logger/libs/asm/Type.getDescriptor:(Ljava/lang/Class;)Ljava/lang/String;
+     328: invokevirtual #99                 // Method al/logger/libs/asm/MethodVisitor.visitFieldInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     331: aload         6
+     333: sipush        187
+     336: ldc           #123                // class al/logger/client/wrapper/LoggerMC/utils/ResourceLocation
+     338: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     341: invokevirtual #124                // Method al/logger/libs/asm/MethodVisitor.visitTypeInsn:(ILjava/lang/String;)V
+     344: aload         6
+     346: bipush        89
+     348: invokevirtual #100                // Method al/logger/libs/asm/MethodVisitor.visitInsn:(I)V
+     351: aload         6
+     353: bipush        25
+     355: iconst_1
+     356: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     359: aload         6
+     361: sipush        183
+     364: ldc           #123                // class al/logger/client/wrapper/LoggerMC/utils/ResourceLocation
+     366: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     369: ldc           #90                 // String <init>
+     371: getstatic     #91                 // Field al/logger/libs/asm/Type.VOID_TYPE:Lal/logger/libs/asm/Type;
+     374: iconst_1
+     375: anewarray     #92                 // class al/logger/libs/asm/Type
+     378: dup
+     379: iconst_0
+     380: ldc           #80                 // class java/lang/Object
+     382: invokestatic  #93                 // Method al/logger/libs/asm/Type.getType:(Ljava/lang/Class;)Lal/logger/libs/asm/Type;
+     385: aastore
+     386: invokestatic  #94                 // Method al/logger/libs/asm/Type.getMethodDescriptor:(Lal/logger/libs/asm/Type;[Lal/logger/libs/asm/Type;)Ljava/lang/String;
+     389: invokevirtual #98                 // Method al/logger/libs/asm/MethodVisitor.visitMethodInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     392: aload         6
+     394: sipush        182
+     397: ldc           #69                 // class al/logger/client/bridge/bridges/IResourceManagerBridge
+     399: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     402: ldc           #69                 // class al/logger/client/bridge/bridges/IResourceManagerBridge
+     404: ldc           #125                // String getResource
+     406: invokestatic  #121                // Method al/logger/client/utils/obfuscate/ObfuscateHelper.targetObfuscatedMethod:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;
+     409: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     412: ldc           #69                 // class al/logger/client/bridge/bridges/IResourceManagerBridge
+     414: ldc           #125                // String getResource
+     416: invokestatic  #121                // Method al/logger/client/utils/obfuscate/ObfuscateHelper.targetObfuscatedMethod:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;
+     419: invokestatic  #105                // Method al/logger/libs/asm/Type.getMethodDescriptor:(Ljava/lang/reflect/Method;)Ljava/lang/String;
+     422: invokevirtual #98                 // Method al/logger/libs/asm/MethodVisitor.visitMethodInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     425: aload         6
+     427: sipush        182
+     430: ldc           #126                // class al/logger/client/wrapper/LoggerMC/resource/IResource
+     432: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     435: ldc           #127                // class al/logger/client/wrapper/IWrapper
+     437: ldc           #128                // String getWrappedObject
+     439: invokestatic  #121                // Method al/logger/client/utils/obfuscate/ObfuscateHelper.targetObfuscatedMethod:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;
+     442: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     445: ldc           #127                // class al/logger/client/wrapper/IWrapper
+     447: ldc           #128                // String getWrappedObject
+     449: invokestatic  #121                // Method al/logger/client/utils/obfuscate/ObfuscateHelper.targetObfuscatedMethod:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;
+     452: invokestatic  #105                // Method al/logger/libs/asm/Type.getMethodDescriptor:(Ljava/lang/reflect/Method;)Ljava/lang/String;
+     455: invokevirtual #98                 // Method al/logger/libs/asm/MethodVisitor.visitMethodInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     458: aload         6
+     460: sipush        192
+     463: getstatic     #129                // Field al/logger/client/wrapper/LoggerMC/resource/IResource.IResourceClass:Ljava/lang/Class;
+     466: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     469: invokevirtual #124                // Method al/logger/libs/asm/MethodVisitor.visitTypeInsn:(ILjava/lang/String;)V
+     472: aload         6
+     474: sipush        176
+     477: invokevirtual #100                // Method al/logger/libs/asm/MethodVisitor.visitInsn:(I)V
+     480: aload         6
+     482: invokevirtual #101                // Method al/logger/libs/asm/MethodVisitor.visitEnd:()V
+     485: bipush        20
+     487: invokestatic  #75                 // Method createRandomString:(I)Ljava/lang/String;
+     490: astore        6
+     492: aload         5
+     494: iconst_1
+     495: getstatic     #130                // Field al/logger/client/wrapper/LoggerMC/resource/IResourceManager.getAllResources:Ljava/lang/reflect/Method;
+     498: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     501: getstatic     #130                // Field al/logger/client/wrapper/LoggerMC/resource/IResourceManager.getAllResources:Ljava/lang/reflect/Method;
+     504: invokestatic  #105                // Method al/logger/libs/asm/Type.getMethodDescriptor:(Ljava/lang/reflect/Method;)Ljava/lang/String;
+     507: aconst_null
+     508: aconst_null
+     509: invokevirtual #95                 // Method al/logger/libs/asm/ClassWriter.visitMethod:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Lal/logger/libs/asm/MethodVisitor;
+     512: astore        7
+     514: aload         7
+     516: bipush        25
+     518: iconst_0
+     519: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     522: aload         7
+     524: bipush        25
+     526: iconst_0
+     527: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     530: aload         7
+     532: sipush        180
+     535: aload_2
+     536: aload_3
+     537: ldc           #69                 // class al/logger/client/bridge/bridges/IResourceManagerBridge
+     539: invokestatic  #88                 // Method al/logger/libs/asm/Type.getDescriptor:(Ljava/lang/Class;)Ljava/lang/String;
+     542: invokevirtual #99                 // Method al/logger/libs/asm/MethodVisitor.visitFieldInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     545: aload         7
+     547: sipush        187
+     550: ldc           #123                // class al/logger/client/wrapper/LoggerMC/utils/ResourceLocation
+     552: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     555: invokevirtual #124                // Method al/logger/libs/asm/MethodVisitor.visitTypeInsn:(ILjava/lang/String;)V
+     558: aload         7
+     560: bipush        89
+     562: invokevirtual #100                // Method al/logger/libs/asm/MethodVisitor.visitInsn:(I)V
+     565: aload         7
+     567: bipush        25
+     569: iconst_1
+     570: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     573: aload         7
+     575: sipush        183
+     578: ldc           #123                // class al/logger/client/wrapper/LoggerMC/utils/ResourceLocation
+     580: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     583: ldc           #90                 // String <init>
+     585: getstatic     #91                 // Field al/logger/libs/asm/Type.VOID_TYPE:Lal/logger/libs/asm/Type;
+     588: iconst_1
+     589: anewarray     #92                 // class al/logger/libs/asm/Type
+     592: dup
+     593: iconst_0
+     594: ldc           #80                 // class java/lang/Object
+     596: invokestatic  #93                 // Method al/logger/libs/asm/Type.getType:(Ljava/lang/Class;)Lal/logger/libs/asm/Type;
+     599: aastore
+     600: invokestatic  #94                 // Method al/logger/libs/asm/Type.getMethodDescriptor:(Lal/logger/libs/asm/Type;[Lal/logger/libs/asm/Type;)Ljava/lang/String;
+     603: invokevirtual #98                 // Method al/logger/libs/asm/MethodVisitor.visitMethodInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     606: aload         7
+     608: sipush        182
+     611: ldc           #69                 // class al/logger/client/bridge/bridges/IResourceManagerBridge
+     613: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     616: ldc           #69                 // class al/logger/client/bridge/bridges/IResourceManagerBridge
+     618: ldc           #131                // String getAllResources
+     620: invokestatic  #121                // Method al/logger/client/utils/obfuscate/ObfuscateHelper.targetObfuscatedMethod:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;
+     623: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     626: ldc           #69                 // class al/logger/client/bridge/bridges/IResourceManagerBridge
+     628: ldc           #131                // String getAllResources
+     630: invokestatic  #121                // Method al/logger/client/utils/obfuscate/ObfuscateHelper.targetObfuscatedMethod:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;
+     633: invokestatic  #105                // Method al/logger/libs/asm/Type.getMethodDescriptor:(Ljava/lang/reflect/Method;)Ljava/lang/String;
+     636: invokevirtual #98                 // Method al/logger/libs/asm/MethodVisitor.visitMethodInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     639: aload         7
+     641: sipush        182
+     644: aload_2
+     645: aload         6
+     647: ldc           #132                // String (Ljava/util/List;)Ljava/util/List;
+     649: invokevirtual #98                 // Method al/logger/libs/asm/MethodVisitor.visitMethodInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     652: aload         7
+     654: sipush        176
+     657: invokevirtual #100                // Method al/logger/libs/asm/MethodVisitor.visitInsn:(I)V
+     660: aload         7
+     662: invokevirtual #101                // Method al/logger/libs/asm/MethodVisitor.visitEnd:()V
+     665: aload         5
+     667: iconst_2
+     668: aload         6
+     670: ldc           #132                // String (Ljava/util/List;)Ljava/util/List;
+     672: aconst_null
+     673: aconst_null
+     674: invokevirtual #95                 // Method al/logger/libs/asm/ClassWriter.visitMethod:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Lal/logger/libs/asm/MethodVisitor;
+     677: astore        7
+     679: new           #133                // class al/logger/libs/asm/Label
+     682: dup
+     683: invokespecial #134                // Method al/logger/libs/asm/Label."<init>":()V
+     686: astore        8
+     688: new           #133                // class al/logger/libs/asm/Label
+     691: dup
+     692: invokespecial #134                // Method al/logger/libs/asm/Label."<init>":()V
+     695: astore        9
+     697: new           #133                // class al/logger/libs/asm/Label
+     700: dup
+     701: invokespecial #134                // Method al/logger/libs/asm/Label."<init>":()V
+     704: astore        10
+     706: new           #133                // class al/logger/libs/asm/Label
+     709: dup
+     710: invokespecial #134                // Method al/logger/libs/asm/Label."<init>":()V
+     713: astore        11
+     715: new           #133                // class al/logger/libs/asm/Label
+     718: dup
+     719: invokespecial #134                // Method al/logger/libs/asm/Label."<init>":()V
+     722: astore        12
+     724: new           #133                // class al/logger/libs/asm/Label
+     727: dup
+     728: invokespecial #134                // Method al/logger/libs/asm/Label."<init>":()V
+     731: astore        13
+     733: new           #133                // class al/logger/libs/asm/Label
+     736: dup
+     737: invokespecial #134                // Method al/logger/libs/asm/Label."<init>":()V
+     740: astore        14
+     742: aload         7
+     744: ldc           #135                // String this
+     746: new           #71                 // class java/lang/StringBuilder
+     749: dup
+     750: invokespecial #72                 // Method java/lang/StringBuilder."<init>":()V
+     753: ldc           #136                // String L
+     755: invokevirtual #74                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     758: aload_2
+     759: invokevirtual #74                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     762: ldc           #137                // String ;
+     764: invokevirtual #74                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     767: invokevirtual #76                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     770: aconst_null
+     771: aload         12
+     773: aload         13
+     775: iconst_0
+     776: invokevirtual #138                // Method al/logger/libs/asm/MethodVisitor.visitLocalVariable:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lal/logger/libs/asm/Label;Lal/logger/libs/asm/Label;I)V
+     779: aload         7
+     781: bipush        20
+     783: invokestatic  #75                 // Method createRandomString:(I)Ljava/lang/String;
+     786: ldc           #139                // class java/util/List
+     788: invokestatic  #88                 // Method al/logger/libs/asm/Type.getDescriptor:(Ljava/lang/Class;)Ljava/lang/String;
+     791: aconst_null
+     792: aload         8
+     794: aload         14
+     796: iconst_1
+     797: invokevirtual #138                // Method al/logger/libs/asm/MethodVisitor.visitLocalVariable:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lal/logger/libs/asm/Label;Lal/logger/libs/asm/Label;I)V
+     800: aload         7
+     802: bipush        20
+     804: invokestatic  #75                 // Method createRandomString:(I)Ljava/lang/String;
+     807: ldc           #139                // class java/util/List
+     809: invokestatic  #88                 // Method al/logger/libs/asm/Type.getDescriptor:(Ljava/lang/Class;)Ljava/lang/String;
+     812: aconst_null
+     813: aload         9
+     815: aload         14
+     817: iconst_2
+     818: invokevirtual #138                // Method al/logger/libs/asm/MethodVisitor.visitLocalVariable:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lal/logger/libs/asm/Label;Lal/logger/libs/asm/Label;I)V
+     821: aload         7
+     823: bipush        20
+     825: invokestatic  #75                 // Method createRandomString:(I)Ljava/lang/String;
+     828: ldc           #126                // class al/logger/client/wrapper/LoggerMC/resource/IResource
+     830: invokestatic  #88                 // Method al/logger/libs/asm/Type.getDescriptor:(Ljava/lang/Class;)Ljava/lang/String;
+     833: aconst_null
+     834: aload         12
+     836: aload         13
+     838: iconst_4
+     839: invokevirtual #138                // Method al/logger/libs/asm/MethodVisitor.visitLocalVariable:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lal/logger/libs/asm/Label;Lal/logger/libs/asm/Label;I)V
+     842: aload         7
+     844: aload         8
+     846: invokevirtual #140                // Method al/logger/libs/asm/MethodVisitor.visitLabel:(Lal/logger/libs/asm/Label;)V
+     849: aload         7
+     851: sipush        187
+     854: ldc           #141                // class java/util/ArrayList
+     856: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     859: invokevirtual #124                // Method al/logger/libs/asm/MethodVisitor.visitTypeInsn:(ILjava/lang/String;)V
+     862: aload         7
+     864: bipush        89
+     866: invokevirtual #100                // Method al/logger/libs/asm/MethodVisitor.visitInsn:(I)V
+     869: aload         7
+     871: sipush        183
+     874: ldc           #141                // class java/util/ArrayList
+     876: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     879: ldc           #90                 // String <init>
+     881: ldc           #97                 // String ()V
+     883: invokevirtual #98                 // Method al/logger/libs/asm/MethodVisitor.visitMethodInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     886: aload         7
+     888: bipush        58
+     890: iconst_2
+     891: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     894: aload         7
+     896: aload         9
+     898: invokevirtual #140                // Method al/logger/libs/asm/MethodVisitor.visitLabel:(Lal/logger/libs/asm/Label;)V
+     901: aload         7
+     903: bipush        25
+     905: iconst_1
+     906: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     909: aload         7
+     911: sipush        185
+     914: ldc           #139                // class java/util/List
+     916: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     919: ldc           #142                // String iterator
+     921: ldc           #143                // String ()Ljava/util/Iterator;
+     923: invokevirtual #98                 // Method al/logger/libs/asm/MethodVisitor.visitMethodInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     926: aload         7
+     928: bipush        58
+     930: iconst_3
+     931: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     934: aload         7
+     936: aload         10
+     938: invokevirtual #140                // Method al/logger/libs/asm/MethodVisitor.visitLabel:(Lal/logger/libs/asm/Label;)V
+     941: aload         7
+     943: bipush        25
+     945: iconst_3
+     946: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     949: aload         7
+     951: sipush        185
+     954: ldc           #139                // class java/util/List
+     956: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     959: ldc           #144                // String hasNext
+     961: ldc           #145                // String ()Z
+     963: invokevirtual #98                 // Method al/logger/libs/asm/MethodVisitor.visitMethodInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     966: aload         7
+     968: sipush        153
+     971: aload         11
+     973: invokevirtual #146                // Method al/logger/libs/asm/MethodVisitor.visitJumpInsn:(ILal/logger/libs/asm/Label;)V
+     976: aload         7
+     978: bipush        25
+     980: iconst_3
+     981: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     984: aload         7
+     986: sipush        185
+     989: ldc           #139                // class java/util/List
+     991: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     994: ldc           #147                // String next
+     996: ldc           #148                // String ()Ljava/lang/Object;
+     998: invokevirtual #98                 // Method al/logger/libs/asm/MethodVisitor.visitMethodInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    1001: aload         7
+    1003: sipush        192
+    1006: ldc           #126                // class al/logger/client/wrapper/LoggerMC/resource/IResource
+    1008: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+    1011: invokevirtual #124                // Method al/logger/libs/asm/MethodVisitor.visitTypeInsn:(ILjava/lang/String;)V
+    1014: aload         7
+    1016: bipush        58
+    1018: iconst_4
+    1019: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+    1022: aload         7
+    1024: aload         12
+    1026: invokevirtual #140                // Method al/logger/libs/asm/MethodVisitor.visitLabel:(Lal/logger/libs/asm/Label;)V
+    1029: aload         7
+    1031: bipush        25
+    1033: iconst_2
+    1034: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+    1037: aload         7
+    1039: bipush        25
+    1041: iconst_4
+    1042: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+    1045: aload         7
+    1047: sipush        182
+    1050: ldc           #126                // class al/logger/client/wrapper/LoggerMC/resource/IResource
+    1052: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+    1055: ldc           #127                // class al/logger/client/wrapper/IWrapper
+    1057: ldc           #128                // String getWrappedObject
+    1059: invokestatic  #121                // Method al/logger/client/utils/obfuscate/ObfuscateHelper.targetObfuscatedMethod:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;
+    1062: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+    1065: ldc           #148                // String ()Ljava/lang/Object;
+    1067: invokevirtual #98                 // Method al/logger/libs/asm/MethodVisitor.visitMethodInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    1070: aload         7
+    1072: sipush        185
+    1075: ldc           #139                // class java/util/List
+    1077: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+    1080: ldc           #149                // String add
+    1082: ldc           #150                // String (Ljava/lang/Object;)Z
+    1084: invokevirtual #98                 // Method al/logger/libs/asm/MethodVisitor.visitMethodInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    1087: aload         7
+    1089: bipush        87
+    1091: invokevirtual #100                // Method al/logger/libs/asm/MethodVisitor.visitInsn:(I)V
+    1094: aload         7
+    1096: aload         13
+    1098: invokevirtual #140                // Method al/logger/libs/asm/MethodVisitor.visitLabel:(Lal/logger/libs/asm/Label;)V
+    1101: aload         7
+    1103: sipush        167
+    1106: aload         10
+    1108: invokevirtual #146                // Method al/logger/libs/asm/MethodVisitor.visitJumpInsn:(ILal/logger/libs/asm/Label;)V
+    1111: aload         7
+    1113: aload         11
+    1115: invokevirtual #140                // Method al/logger/libs/asm/MethodVisitor.visitLabel:(Lal/logger/libs/asm/Label;)V
+    1118: aload         7
+    1120: bipush        25
+    1122: iconst_2
+    1123: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+    1126: aload         7
+    1128: sipush        176
+    1131: invokevirtual #100                // Method al/logger/libs/asm/MethodVisitor.visitInsn:(I)V
+    1134: aload         7
+    1136: aload         14
+    1138: invokevirtual #140                // Method al/logger/libs/asm/MethodVisitor.visitLabel:(Lal/logger/libs/asm/Label;)V
+    1141: aload         7
+    1143: invokevirtual #101                // Method al/logger/libs/asm/MethodVisitor.visitEnd:()V
+    1146: aload         5
+    1148: invokevirtual #108                // Method al/logger/libs/asm/ClassWriter.toByteArray:()[B
+    1151: astore        7
+    1153: new           #109                // class al/logger/libs/asm/ClassReader
+    1156: dup
+    1157: aload         7
+    1159: invokespecial #110                // Method al/logger/libs/asm/ClassReader."<init>":([B)V
+    1162: astore        8
+    1164: new           #111                // class al/logger/libs/asm/tree/ClassNode
+    1167: dup
+    1168: invokespecial #112                // Method al/logger/libs/asm/tree/ClassNode."<init>":()V
+    1171: astore        9
+    1173: aload         8
+    1175: aload         9
+    1177: iconst_0
+    1178: invokevirtual #113                // Method al/logger/libs/asm/ClassReader.accept:(Lal/logger/libs/asm/ClassVisitor;I)V
+    1181: new           #81                 // class al/logger/libs/asm/ClassWriter
+    1184: dup
+    1185: iconst_2
+    1186: invokespecial #82                 // Method al/logger/libs/asm/ClassWriter."<init>":(I)V
+    1189: astore        10
+    1191: aload         8
+    1193: aload         10
+    1195: iconst_0
+    1196: invokevirtual #113                // Method al/logger/libs/asm/ClassReader.accept:(Lal/logger/libs/asm/ClassVisitor;I)V
+    1199: aload         10
+    1201: invokevirtual #108                // Method al/logger/libs/asm/ClassWriter.toByteArray:()[B
+    1204: astore        7
+    1206: invokestatic  #12                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+    1209: invokevirtual #114                // Method al/logger/client/Logger.getAgent:()Lal/logger/client/agent/Agent;
+    1212: ldc           #66                 // class al/logger/client/bridge/bridges/GuiScreenBridge
+    1214: invokevirtual #115                // Method java/lang/Class.getClassLoader:()Ljava/lang/ClassLoader;
+    1217: aload_1
+    1218: aload         7
+    1220: invokeinterface #116,  4          // InterfaceMethod al/logger/client/agent/Agent.defineClass:(Ljava/lang/ClassLoader;Ljava/lang/String;[B)Ljava/lang/Class;
+    1225: astore        11
+    1227: aload         11
+    1229: areturn
+    LineNumberTable:
+      line 243: 0
+      line 244: 24
+      line 245: 33
+      line 246: 39
+      line 247: 43
+      line 249: 53
+      line 250: 81
+      line 252: 96
+      line 254: 126
+      line 255: 134
+      line 256: 151
+      line 257: 159
+      line 258: 167
+      line 259: 182
+      line 261: 190
+      line 264: 195
+      line 266: 217
+      line 267: 225
+      line 268: 240
+      line 269: 254
+      line 270: 264
+      line 268: 270
+      line 271: 273
+      line 273: 281
+      line 276: 286
+      line 278: 308
+      line 279: 316
+      line 280: 331
+      line 281: 344
+      line 282: 351
+      line 283: 359
+      line 284: 392
+      line 285: 406
+      line 286: 416
+      line 284: 422
+      line 287: 425
+      line 288: 439
+      line 289: 449
+      line 287: 455
+      line 290: 458
+      line 291: 472
+      line 293: 480
+      line 295: 485
+      line 297: 492
+      line 299: 514
+      line 300: 522
+      line 301: 530
+      line 302: 545
+      line 303: 558
+      line 304: 565
+      line 305: 573
+      line 306: 606
+      line 307: 620
+      line 308: 630
+      line 306: 636
+      line 309: 639
+      line 310: 652
+      line 312: 660
+      line 315: 665
+      line 317: 679
+      line 318: 688
+      line 319: 697
+      line 320: 706
+      line 321: 715
+      line 322: 724
+      line 323: 733
+      line 325: 742
+      line 326: 779
+      line 327: 800
+      line 328: 821
+      line 331: 842
+      line 332: 849
+      line 333: 862
+      line 334: 869
+      line 335: 886
+      line 337: 894
+      line 338: 901
+      line 339: 909
+      line 340: 926
+      line 342: 934
+      line 343: 941
+      line 344: 949
+      line 345: 966
+      line 346: 976
+      line 347: 984
+      line 348: 1001
+      line 349: 1014
+      line 351: 1022
+      line 352: 1029
+      line 353: 1037
+      line 354: 1045
+      line 355: 1059
+      line 354: 1067
+      line 357: 1070
+      line 358: 1087
+      line 360: 1094
+      line 361: 1101
+      line 363: 1111
+      line 364: 1118
+      line 365: 1126
+      line 366: 1134
+      line 368: 1141
+      line 370: 1146
+      line 371: 1153
+      line 372: 1164
+      line 373: 1173
+      line 374: 1181
+      line 375: 1191
+      line 376: 1199
+      line 377: 1206
+      line 378: 1227
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+        126      69     6  init   Lal/logger/libs/asm/MethodVisitor;
+        217      69     6 getResourceDomains   Lal/logger/libs/asm/MethodVisitor;
+        308     177     6 getResource   Lal/logger/libs/asm/MethodVisitor;
+        514     151     7 getAllResources   Lal/logger/libs/asm/MethodVisitor;
+        679     467     7 convert   Lal/logger/libs/asm/MethodVisitor;
+        688     458     8    L0   Lal/logger/libs/asm/Label;
+        697     449     9    L1   Lal/logger/libs/asm/Label;
+        706     440    10    L2   Lal/logger/libs/asm/Label;
+        715     431    11    L3   Lal/logger/libs/asm/Label;
+        724     422    12    L4   Lal/logger/libs/asm/Label;
+        733     413    13    L5   Lal/logger/libs/asm/Label;
+        742     404    14    L6   Lal/logger/libs/asm/Label;
+          0    1230     0  this   Lal/logger/client/bridge/BridgeManager;
+         24    1206     1  name   Ljava/lang/String;
+         33    1197     2 internalName   Ljava/lang/String;
+         39    1191     3 wrappedIResourceBridge   Ljava/lang/String;
+         43    1187     4 superClass   Ljava/lang/Class;
+         53    1177     5    cw   Lal/logger/libs/asm/ClassWriter;
+        492     738     6 convertName   Ljava/lang/String;
+       1153      77     7 bytes   [B
+       1164      66     8    cr   Lal/logger/libs/asm/ClassReader;
+       1173      57     9    cn   Lal/logger/libs/asm/tree/ClassNode;
+       1191      39    10   cw2   Lal/logger/libs/asm/ClassWriter;
+       1227       3    11 bridge   Ljava/lang/Class;
+
+  private java.lang.Class<?> generateIResourceBridge();
+    Code:
+       0: new           #71                 // class java/lang/StringBuilder
+       3: dup
+       4: invokespecial #72                 // Method java/lang/StringBuilder."<init>":()V
+       7: ldc           #117                // String al.logger.client.resource.
+       9: invokevirtual #74                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      12: bipush        20
+      14: invokestatic  #75                 // Method createRandomString:(I)Ljava/lang/String;
+      17: invokevirtual #74                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      20: invokevirtual #76                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      23: astore_1
+      24: aload_1
+      25: ldc           #77                 // String .
+      27: ldc           #78                 // String /
+      29: invokevirtual #79                 // Method java/lang/String.replace:(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+      32: astore_2
+      33: bipush        20
+      35: invokestatic  #75                 // Method createRandomString:(I)Ljava/lang/String;
+      38: astore_3
+      39: ldc           #80                 // class java/lang/Object
+      41: astore        4
+      43: new           #81                 // class al/logger/libs/asm/ClassWriter
+      46: dup
+      47: iconst_2
+      48: invokespecial #82                 // Method al/logger/libs/asm/ClassWriter."<init>":(I)V
+      51: astore        5
+      53: aload         5
+      55: bipush        52
+      57: iconst_1
+      58: aload_2
+      59: aconst_null
+      60: aload         4
+      62: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+      65: iconst_1
+      66: anewarray     #85                 // class java/lang/String
+      69: dup
+      70: iconst_0
+      71: getstatic     #129                // Field al/logger/client/wrapper/LoggerMC/resource/IResource.IResourceClass:Ljava/lang/Class;
+      74: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+      77: aastore
+      78: invokevirtual #87                 // Method al/logger/libs/asm/ClassWriter.visit:(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V
+      81: aload         5
+      83: iconst_2
+      84: aload_3
+      85: ldc           #68                 // class al/logger/client/bridge/bridges/IResourceBridge
+      87: invokestatic  #88                 // Method al/logger/libs/asm/Type.getDescriptor:(Ljava/lang/Class;)Ljava/lang/String;
+      90: aconst_null
+      91: aconst_null
+      92: invokevirtual #89                 // Method al/logger/libs/asm/ClassWriter.visitField:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)Lal/logger/libs/asm/FieldVisitor;
+      95: pop
+      96: aload         5
+      98: iconst_1
+      99: ldc           #90                 // String <init>
+     101: getstatic     #91                 // Field al/logger/libs/asm/Type.VOID_TYPE:Lal/logger/libs/asm/Type;
+     104: iconst_1
+     105: anewarray     #92                 // class al/logger/libs/asm/Type
+     108: dup
+     109: iconst_0
+     110: ldc           #68                 // class al/logger/client/bridge/bridges/IResourceBridge
+     112: invokestatic  #93                 // Method al/logger/libs/asm/Type.getType:(Ljava/lang/Class;)Lal/logger/libs/asm/Type;
+     115: aastore
+     116: invokestatic  #94                 // Method al/logger/libs/asm/Type.getMethodDescriptor:(Lal/logger/libs/asm/Type;[Lal/logger/libs/asm/Type;)Ljava/lang/String;
+     119: aconst_null
+     120: aconst_null
+     121: invokevirtual #95                 // Method al/logger/libs/asm/ClassWriter.visitMethod:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Lal/logger/libs/asm/MethodVisitor;
+     124: astore        6
+     126: aload         6
+     128: bipush        25
+     130: iconst_0
+     131: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     134: aload         6
+     136: sipush        183
+     139: aload         4
+     141: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     144: ldc           #90                 // String <init>
+     146: ldc           #97                 // String ()V
+     148: invokevirtual #98                 // Method al/logger/libs/asm/MethodVisitor.visitMethodInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     151: aload         6
+     153: bipush        25
+     155: iconst_0
+     156: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     159: aload         6
+     161: bipush        25
+     163: iconst_1
+     164: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     167: aload         6
+     169: sipush        181
+     172: aload_2
+     173: aload_3
+     174: ldc           #68                 // class al/logger/client/bridge/bridges/IResourceBridge
+     176: invokestatic  #88                 // Method al/logger/libs/asm/Type.getDescriptor:(Ljava/lang/Class;)Ljava/lang/String;
+     179: invokevirtual #99                 // Method al/logger/libs/asm/MethodVisitor.visitFieldInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     182: aload         6
+     184: sipush        177
+     187: invokevirtual #100                // Method al/logger/libs/asm/MethodVisitor.visitInsn:(I)V
+     190: aload         6
+     192: invokevirtual #101                // Method al/logger/libs/asm/MethodVisitor.visitEnd:()V
+     195: aload         5
+     197: iconst_1
+     198: getstatic     #151                // Field al/logger/client/wrapper/LoggerMC/resource/IResource.getResourceLocation:Ljava/lang/reflect/Method;
+     201: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     204: getstatic     #151                // Field al/logger/client/wrapper/LoggerMC/resource/IResource.getResourceLocation:Ljava/lang/reflect/Method;
+     207: invokestatic  #105                // Method al/logger/libs/asm/Type.getMethodDescriptor:(Ljava/lang/reflect/Method;)Ljava/lang/String;
+     210: aconst_null
+     211: aconst_null
+     212: invokevirtual #95                 // Method al/logger/libs/asm/ClassWriter.visitMethod:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Lal/logger/libs/asm/MethodVisitor;
+     215: astore        6
+     217: aload         6
+     219: bipush        25
+     221: iconst_0
+     222: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     225: aload         6
+     227: sipush        180
+     230: aload_2
+     231: aload_3
+     232: ldc           #68                 // class al/logger/client/bridge/bridges/IResourceBridge
+     234: invokestatic  #88                 // Method al/logger/libs/asm/Type.getDescriptor:(Ljava/lang/Class;)Ljava/lang/String;
+     237: invokevirtual #99                 // Method al/logger/libs/asm/MethodVisitor.visitFieldInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     240: aload         6
+     242: sipush        182
+     245: ldc           #68                 // class al/logger/client/bridge/bridges/IResourceBridge
+     247: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     250: ldc           #68                 // class al/logger/client/bridge/bridges/IResourceBridge
+     252: ldc           #152                // String getResourceLocation
+     254: invokestatic  #121                // Method al/logger/client/utils/obfuscate/ObfuscateHelper.targetObfuscatedMethod:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;
+     257: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     260: ldc           #68                 // class al/logger/client/bridge/bridges/IResourceBridge
+     262: ldc           #152                // String getResourceLocation
+     264: invokestatic  #121                // Method al/logger/client/utils/obfuscate/ObfuscateHelper.targetObfuscatedMethod:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;
+     267: invokestatic  #105                // Method al/logger/libs/asm/Type.getMethodDescriptor:(Ljava/lang/reflect/Method;)Ljava/lang/String;
+     270: invokevirtual #98                 // Method al/logger/libs/asm/MethodVisitor.visitMethodInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     273: aload         6
+     275: sipush        182
+     278: ldc           #123                // class al/logger/client/wrapper/LoggerMC/utils/ResourceLocation
+     280: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     283: ldc           #127                // class al/logger/client/wrapper/IWrapper
+     285: ldc           #128                // String getWrappedObject
+     287: invokestatic  #121                // Method al/logger/client/utils/obfuscate/ObfuscateHelper.targetObfuscatedMethod:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;
+     290: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     293: ldc           #127                // class al/logger/client/wrapper/IWrapper
+     295: ldc           #128                // String getWrappedObject
+     297: invokestatic  #121                // Method al/logger/client/utils/obfuscate/ObfuscateHelper.targetObfuscatedMethod:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;
+     300: invokestatic  #105                // Method al/logger/libs/asm/Type.getMethodDescriptor:(Ljava/lang/reflect/Method;)Ljava/lang/String;
+     303: invokevirtual #98                 // Method al/logger/libs/asm/MethodVisitor.visitMethodInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     306: aload         6
+     308: sipush        192
+     311: getstatic     #153                // Field al/logger/client/wrapper/LoggerMC/utils/ResourceLocation.ResourceLocation:Ljava/lang/Class;
+     314: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     317: invokevirtual #124                // Method al/logger/libs/asm/MethodVisitor.visitTypeInsn:(ILjava/lang/String;)V
+     320: aload         6
+     322: sipush        176
+     325: invokevirtual #100                // Method al/logger/libs/asm/MethodVisitor.visitInsn:(I)V
+     328: aload         6
+     330: invokevirtual #101                // Method al/logger/libs/asm/MethodVisitor.visitEnd:()V
+     333: aload         5
+     335: iconst_1
+     336: getstatic     #154                // Field al/logger/client/wrapper/LoggerMC/resource/IResource.getInputStream:Ljava/lang/reflect/Method;
+     339: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     342: getstatic     #154                // Field al/logger/client/wrapper/LoggerMC/resource/IResource.getInputStream:Ljava/lang/reflect/Method;
+     345: invokestatic  #105                // Method al/logger/libs/asm/Type.getMethodDescriptor:(Ljava/lang/reflect/Method;)Ljava/lang/String;
+     348: aconst_null
+     349: aconst_null
+     350: invokevirtual #95                 // Method al/logger/libs/asm/ClassWriter.visitMethod:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Lal/logger/libs/asm/MethodVisitor;
+     353: astore        6
+     355: aload         6
+     357: bipush        25
+     359: iconst_0
+     360: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     363: aload         6
+     365: sipush        180
+     368: aload_2
+     369: aload_3
+     370: ldc           #68                 // class al/logger/client/bridge/bridges/IResourceBridge
+     372: invokestatic  #88                 // Method al/logger/libs/asm/Type.getDescriptor:(Ljava/lang/Class;)Ljava/lang/String;
+     375: invokevirtual #99                 // Method al/logger/libs/asm/MethodVisitor.visitFieldInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     378: aload         6
+     380: sipush        182
+     383: ldc           #68                 // class al/logger/client/bridge/bridges/IResourceBridge
+     385: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     388: ldc           #68                 // class al/logger/client/bridge/bridges/IResourceBridge
+     390: ldc           #155                // String getInputStream
+     392: invokestatic  #121                // Method al/logger/client/utils/obfuscate/ObfuscateHelper.targetObfuscatedMethod:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;
+     395: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     398: ldc           #68                 // class al/logger/client/bridge/bridges/IResourceBridge
+     400: ldc           #155                // String getInputStream
+     402: invokestatic  #121                // Method al/logger/client/utils/obfuscate/ObfuscateHelper.targetObfuscatedMethod:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;
+     405: invokestatic  #105                // Method al/logger/libs/asm/Type.getMethodDescriptor:(Ljava/lang/reflect/Method;)Ljava/lang/String;
+     408: invokevirtual #98                 // Method al/logger/libs/asm/MethodVisitor.visitMethodInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     411: aload         6
+     413: sipush        176
+     416: invokevirtual #100                // Method al/logger/libs/asm/MethodVisitor.visitInsn:(I)V
+     419: aload         6
+     421: invokevirtual #101                // Method al/logger/libs/asm/MethodVisitor.visitEnd:()V
+     424: aload         5
+     426: iconst_1
+     427: getstatic     #156                // Field al/logger/client/wrapper/LoggerMC/resource/IResource.hasMetadata:Ljava/lang/reflect/Method;
+     430: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     433: getstatic     #156                // Field al/logger/client/wrapper/LoggerMC/resource/IResource.hasMetadata:Ljava/lang/reflect/Method;
+     436: invokestatic  #105                // Method al/logger/libs/asm/Type.getMethodDescriptor:(Ljava/lang/reflect/Method;)Ljava/lang/String;
+     439: aconst_null
+     440: aconst_null
+     441: invokevirtual #95                 // Method al/logger/libs/asm/ClassWriter.visitMethod:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Lal/logger/libs/asm/MethodVisitor;
+     444: astore        6
+     446: aload         6
+     448: bipush        25
+     450: iconst_0
+     451: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     454: aload         6
+     456: sipush        180
+     459: aload_2
+     460: aload_3
+     461: ldc           #68                 // class al/logger/client/bridge/bridges/IResourceBridge
+     463: invokestatic  #88                 // Method al/logger/libs/asm/Type.getDescriptor:(Ljava/lang/Class;)Ljava/lang/String;
+     466: invokevirtual #99                 // Method al/logger/libs/asm/MethodVisitor.visitFieldInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     469: aload         6
+     471: sipush        182
+     474: ldc           #68                 // class al/logger/client/bridge/bridges/IResourceBridge
+     476: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     479: ldc           #68                 // class al/logger/client/bridge/bridges/IResourceBridge
+     481: ldc           #157                // String hasMetadata
+     483: invokestatic  #121                // Method al/logger/client/utils/obfuscate/ObfuscateHelper.targetObfuscatedMethod:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;
+     486: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     489: ldc           #68                 // class al/logger/client/bridge/bridges/IResourceBridge
+     491: ldc           #157                // String hasMetadata
+     493: invokestatic  #121                // Method al/logger/client/utils/obfuscate/ObfuscateHelper.targetObfuscatedMethod:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;
+     496: invokestatic  #105                // Method al/logger/libs/asm/Type.getMethodDescriptor:(Ljava/lang/reflect/Method;)Ljava/lang/String;
+     499: invokevirtual #98                 // Method al/logger/libs/asm/MethodVisitor.visitMethodInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     502: aload         6
+     504: sipush        172
+     507: invokevirtual #100                // Method al/logger/libs/asm/MethodVisitor.visitInsn:(I)V
+     510: aload         6
+     512: invokevirtual #101                // Method al/logger/libs/asm/MethodVisitor.visitEnd:()V
+     515: aload         5
+     517: iconst_1
+     518: getstatic     #158                // Field al/logger/client/wrapper/LoggerMC/resource/IResource.getMetadata:Ljava/lang/reflect/Method;
+     521: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     524: getstatic     #158                // Field al/logger/client/wrapper/LoggerMC/resource/IResource.getMetadata:Ljava/lang/reflect/Method;
+     527: invokestatic  #105                // Method al/logger/libs/asm/Type.getMethodDescriptor:(Ljava/lang/reflect/Method;)Ljava/lang/String;
+     530: aconst_null
+     531: aconst_null
+     532: invokevirtual #95                 // Method al/logger/libs/asm/ClassWriter.visitMethod:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Lal/logger/libs/asm/MethodVisitor;
+     535: astore        6
+     537: aload         6
+     539: bipush        25
+     541: iconst_0
+     542: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     545: aload         6
+     547: sipush        180
+     550: aload_2
+     551: aload_3
+     552: ldc           #68                 // class al/logger/client/bridge/bridges/IResourceBridge
+     554: invokestatic  #88                 // Method al/logger/libs/asm/Type.getDescriptor:(Ljava/lang/Class;)Ljava/lang/String;
+     557: invokevirtual #99                 // Method al/logger/libs/asm/MethodVisitor.visitFieldInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     560: aload         6
+     562: bipush        25
+     564: iconst_1
+     565: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     568: aload         6
+     570: sipush        182
+     573: ldc           #68                 // class al/logger/client/bridge/bridges/IResourceBridge
+     575: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     578: ldc           #68                 // class al/logger/client/bridge/bridges/IResourceBridge
+     580: ldc           #159                // String getMetadata
+     582: invokestatic  #121                // Method al/logger/client/utils/obfuscate/ObfuscateHelper.targetObfuscatedMethod:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;
+     585: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     588: ldc           #68                 // class al/logger/client/bridge/bridges/IResourceBridge
+     590: ldc           #159                // String getMetadata
+     592: invokestatic  #121                // Method al/logger/client/utils/obfuscate/ObfuscateHelper.targetObfuscatedMethod:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;
+     595: invokestatic  #105                // Method al/logger/libs/asm/Type.getMethodDescriptor:(Ljava/lang/reflect/Method;)Ljava/lang/String;
+     598: invokevirtual #98                 // Method al/logger/libs/asm/MethodVisitor.visitMethodInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     601: aload         6
+     603: sipush        182
+     606: ldc           #160                // class al/logger/client/wrapper/LoggerMC/resource/IMetadataSection
+     608: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     611: ldc           #127                // class al/logger/client/wrapper/IWrapper
+     613: ldc           #128                // String getWrappedObject
+     615: invokestatic  #121                // Method al/logger/client/utils/obfuscate/ObfuscateHelper.targetObfuscatedMethod:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;
+     618: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     621: ldc           #127                // class al/logger/client/wrapper/IWrapper
+     623: ldc           #128                // String getWrappedObject
+     625: invokestatic  #121                // Method al/logger/client/utils/obfuscate/ObfuscateHelper.targetObfuscatedMethod:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;
+     628: invokestatic  #105                // Method al/logger/libs/asm/Type.getMethodDescriptor:(Ljava/lang/reflect/Method;)Ljava/lang/String;
+     631: invokevirtual #98                 // Method al/logger/libs/asm/MethodVisitor.visitMethodInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     634: aload         6
+     636: sipush        192
+     639: getstatic     #153                // Field al/logger/client/wrapper/LoggerMC/utils/ResourceLocation.ResourceLocation:Ljava/lang/Class;
+     642: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     645: invokevirtual #124                // Method al/logger/libs/asm/MethodVisitor.visitTypeInsn:(ILjava/lang/String;)V
+     648: aload         6
+     650: sipush        176
+     653: invokevirtual #100                // Method al/logger/libs/asm/MethodVisitor.visitInsn:(I)V
+     656: aload         6
+     658: invokevirtual #101                // Method al/logger/libs/asm/MethodVisitor.visitEnd:()V
+     661: aload         5
+     663: iconst_1
+     664: getstatic     #161                // Field al/logger/client/wrapper/LoggerMC/resource/IResource.getResourcePackName:Ljava/lang/reflect/Method;
+     667: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     670: getstatic     #161                // Field al/logger/client/wrapper/LoggerMC/resource/IResource.getResourcePackName:Ljava/lang/reflect/Method;
+     673: invokestatic  #105                // Method al/logger/libs/asm/Type.getMethodDescriptor:(Ljava/lang/reflect/Method;)Ljava/lang/String;
+     676: aconst_null
+     677: aconst_null
+     678: invokevirtual #95                 // Method al/logger/libs/asm/ClassWriter.visitMethod:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Lal/logger/libs/asm/MethodVisitor;
+     681: astore        6
+     683: aload         6
+     685: bipush        25
+     687: iconst_0
+     688: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     691: aload         6
+     693: sipush        180
+     696: aload_2
+     697: aload_3
+     698: ldc           #68                 // class al/logger/client/bridge/bridges/IResourceBridge
+     700: invokestatic  #88                 // Method al/logger/libs/asm/Type.getDescriptor:(Ljava/lang/Class;)Ljava/lang/String;
+     703: invokevirtual #99                 // Method al/logger/libs/asm/MethodVisitor.visitFieldInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     706: aload         6
+     708: sipush        182
+     711: ldc           #68                 // class al/logger/client/bridge/bridges/IResourceBridge
+     713: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     716: ldc           #68                 // class al/logger/client/bridge/bridges/IResourceBridge
+     718: ldc           #162                // String getResourcePackName
+     720: invokestatic  #121                // Method al/logger/client/utils/obfuscate/ObfuscateHelper.targetObfuscatedMethod:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;
+     723: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     726: ldc           #68                 // class al/logger/client/bridge/bridges/IResourceBridge
+     728: ldc           #162                // String getResourcePackName
+     730: invokestatic  #121                // Method al/logger/client/utils/obfuscate/ObfuscateHelper.targetObfuscatedMethod:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;
+     733: invokestatic  #105                // Method al/logger/libs/asm/Type.getMethodDescriptor:(Ljava/lang/reflect/Method;)Ljava/lang/String;
+     736: invokevirtual #98                 // Method al/logger/libs/asm/MethodVisitor.visitMethodInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     739: aload         6
+     741: sipush        176
+     744: invokevirtual #100                // Method al/logger/libs/asm/MethodVisitor.visitInsn:(I)V
+     747: aload         6
+     749: invokevirtual #101                // Method al/logger/libs/asm/MethodVisitor.visitEnd:()V
+     752: aload         5
+     754: invokevirtual #108                // Method al/logger/libs/asm/ClassWriter.toByteArray:()[B
+     757: astore        6
+     759: new           #109                // class al/logger/libs/asm/ClassReader
+     762: dup
+     763: aload         6
+     765: invokespecial #110                // Method al/logger/libs/asm/ClassReader."<init>":([B)V
+     768: astore        7
+     770: new           #111                // class al/logger/libs/asm/tree/ClassNode
+     773: dup
+     774: invokespecial #112                // Method al/logger/libs/asm/tree/ClassNode."<init>":()V
+     777: astore        8
+     779: aload         7
+     781: aload         8
+     783: iconst_0
+     784: invokevirtual #113                // Method al/logger/libs/asm/ClassReader.accept:(Lal/logger/libs/asm/ClassVisitor;I)V
+     787: new           #81                 // class al/logger/libs/asm/ClassWriter
+     790: dup
+     791: iconst_2
+     792: invokespecial #82                 // Method al/logger/libs/asm/ClassWriter."<init>":(I)V
+     795: astore        9
+     797: aload         7
+     799: aload         9
+     801: iconst_0
+     802: invokevirtual #113                // Method al/logger/libs/asm/ClassReader.accept:(Lal/logger/libs/asm/ClassVisitor;I)V
+     805: aload         9
+     807: invokevirtual #108                // Method al/logger/libs/asm/ClassWriter.toByteArray:()[B
+     810: astore        6
+     812: invokestatic  #12                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     815: invokevirtual #114                // Method al/logger/client/Logger.getAgent:()Lal/logger/client/agent/Agent;
+     818: ldc           #66                 // class al/logger/client/bridge/bridges/GuiScreenBridge
+     820: invokevirtual #115                // Method java/lang/Class.getClassLoader:()Ljava/lang/ClassLoader;
+     823: aload_1
+     824: aload         6
+     826: invokeinterface #116,  4          // InterfaceMethod al/logger/client/agent/Agent.defineClass:(Ljava/lang/ClassLoader;Ljava/lang/String;[B)Ljava/lang/Class;
+     831: astore        10
+     833: aload         10
+     835: areturn
+    LineNumberTable:
+      line 382: 0
+      line 383: 24
+      line 384: 33
+      line 385: 39
+      line 386: 43
+      line 388: 53
+      line 389: 81
+      line 391: 96
+      line 393: 126
+      line 394: 134
+      line 395: 151
+      line 396: 159
+      line 397: 167
+      line 398: 182
+      line 400: 190
+      line 403: 195
+      line 405: 217
+      line 406: 225
+      line 407: 240
+      line 408: 254
+      line 409: 264
+      line 407: 270
+      line 410: 273
+      line 411: 287
+      line 412: 297
+      line 410: 303
+      line 413: 306
+      line 414: 320
+      line 416: 328
+      line 419: 333
+      line 421: 355
+      line 422: 363
+      line 423: 378
+      line 424: 392
+      line 425: 402
+      line 423: 408
+      line 426: 411
+      line 428: 419
+      line 431: 424
+      line 433: 446
+      line 434: 454
+      line 435: 469
+      line 436: 483
+      line 437: 493
+      line 435: 499
+      line 438: 502
+      line 440: 510
+      line 443: 515
+      line 445: 537
+      line 446: 545
+      line 447: 560
+      line 448: 568
+      line 449: 582
+      line 450: 592
+      line 448: 598
+      line 451: 601
+      line 452: 615
+      line 453: 625
+      line 451: 631
+      line 454: 634
+      line 455: 648
+      line 457: 656
+      line 460: 661
+      line 462: 683
+      line 463: 691
+      line 464: 706
+      line 465: 720
+      line 466: 730
+      line 464: 736
+      line 467: 739
+      line 469: 747
+      line 471: 752
+      line 472: 759
+      line 473: 770
+      line 474: 779
+      line 475: 787
+      line 476: 797
+      line 477: 805
+      line 478: 812
+      line 479: 833
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+        126      69     6  init   Lal/logger/libs/asm/MethodVisitor;
+        217     116     6 getResourceLocation   Lal/logger/libs/asm/MethodVisitor;
+        355      69     6 getInputStream   Lal/logger/libs/asm/MethodVisitor;
+        446      69     6 hasMetadata   Lal/logger/libs/asm/MethodVisitor;
+        537     124     6 getMetadata   Lal/logger/libs/asm/MethodVisitor;
+        683      69     6 getResourcePackName   Lal/logger/libs/asm/MethodVisitor;
+          0     836     0  this   Lal/logger/client/bridge/BridgeManager;
+         24     812     1  name   Ljava/lang/String;
+         33     803     2 internalName   Ljava/lang/String;
+         39     797     3 wrappedIResource   Ljava/lang/String;
+         43     793     4 superClass   Ljava/lang/Class;
+         53     783     5    cw   Lal/logger/libs/asm/ClassWriter;
+        759      77     6 bytes   [B
+        770      66     7    cr   Lal/logger/libs/asm/ClassReader;
+        779      57     8    cn   Lal/logger/libs/asm/tree/ClassNode;
+        797      39     9   cw2   Lal/logger/libs/asm/ClassWriter;
+        833       3    10 bridge   Ljava/lang/Class;
+
+  private java.lang.Class<?> generateGuiScreenBridge();
+    Code:
+       0: new           #71                 // class java/lang/StringBuilder
+       3: dup
+       4: invokespecial #72                 // Method java/lang/StringBuilder."<init>":()V
+       7: ldc           #163                // String al.logger.client.gui.
+       9: invokevirtual #74                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      12: bipush        20
+      14: invokestatic  #75                 // Method createRandomString:(I)Ljava/lang/String;
+      17: invokevirtual #74                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      20: invokevirtual #76                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      23: astore_1
+      24: aload_1
+      25: ldc           #77                 // String .
+      27: ldc           #78                 // String /
+      29: invokevirtual #79                 // Method java/lang/String.replace:(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+      32: astore_2
+      33: bipush        20
+      35: invokestatic  #75                 // Method createRandomString:(I)Ljava/lang/String;
+      38: astore_3
+      39: getstatic     #164                // Field al/logger/client/wrapper/LoggerMC/gui/GuiScreen.GuiScreenClass:Ljava/lang/Class;
+      42: astore        4
+      44: new           #81                 // class al/logger/libs/asm/ClassWriter
+      47: dup
+      48: iconst_2
+      49: invokespecial #82                 // Method al/logger/libs/asm/ClassWriter."<init>":(I)V
+      52: astore        5
+      54: aload         5
+      56: bipush        52
+      58: iconst_1
+      59: aload_2
+      60: aconst_null
+      61: aload         4
+      63: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+      66: iconst_0
+      67: anewarray     #85                 // class java/lang/String
+      70: invokevirtual #87                 // Method al/logger/libs/asm/ClassWriter.visit:(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V
+      73: aload         5
+      75: iconst_2
+      76: aload_3
+      77: ldc           #66                 // class al/logger/client/bridge/bridges/GuiScreenBridge
+      79: invokestatic  #88                 // Method al/logger/libs/asm/Type.getDescriptor:(Ljava/lang/Class;)Ljava/lang/String;
+      82: aconst_null
+      83: aconst_null
+      84: invokevirtual #89                 // Method al/logger/libs/asm/ClassWriter.visitField:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)Lal/logger/libs/asm/FieldVisitor;
+      87: pop
+      88: aload         5
+      90: iconst_1
+      91: ldc           #90                 // String <init>
+      93: getstatic     #91                 // Field al/logger/libs/asm/Type.VOID_TYPE:Lal/logger/libs/asm/Type;
+      96: iconst_1
+      97: anewarray     #92                 // class al/logger/libs/asm/Type
+     100: dup
+     101: iconst_0
+     102: ldc           #66                 // class al/logger/client/bridge/bridges/GuiScreenBridge
+     104: invokestatic  #93                 // Method al/logger/libs/asm/Type.getType:(Ljava/lang/Class;)Lal/logger/libs/asm/Type;
+     107: aastore
+     108: invokestatic  #94                 // Method al/logger/libs/asm/Type.getMethodDescriptor:(Lal/logger/libs/asm/Type;[Lal/logger/libs/asm/Type;)Ljava/lang/String;
+     111: aconst_null
+     112: aconst_null
+     113: invokevirtual #95                 // Method al/logger/libs/asm/ClassWriter.visitMethod:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Lal/logger/libs/asm/MethodVisitor;
+     116: astore        6
+     118: aload         6
+     120: bipush        25
+     122: iconst_0
+     123: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     126: aload         6
+     128: sipush        183
+     131: aload         4
+     133: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     136: ldc           #90                 // String <init>
+     138: ldc           #97                 // String ()V
+     140: invokevirtual #98                 // Method al/logger/libs/asm/MethodVisitor.visitMethodInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     143: aload         6
+     145: bipush        25
+     147: iconst_0
+     148: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     151: aload         6
+     153: bipush        25
+     155: iconst_1
+     156: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     159: aload         6
+     161: sipush        181
+     164: aload_2
+     165: aload_3
+     166: ldc           #66                 // class al/logger/client/bridge/bridges/GuiScreenBridge
+     168: invokestatic  #88                 // Method al/logger/libs/asm/Type.getDescriptor:(Ljava/lang/Class;)Ljava/lang/String;
+     171: invokevirtual #99                 // Method al/logger/libs/asm/MethodVisitor.visitFieldInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     174: aload         6
+     176: sipush        177
+     179: invokevirtual #100                // Method al/logger/libs/asm/MethodVisitor.visitInsn:(I)V
+     182: aload         6
+     184: invokevirtual #101                // Method al/logger/libs/asm/MethodVisitor.visitEnd:()V
+     187: aload         5
+     189: iconst_1
+     190: getstatic     #165                // Field al/logger/client/wrapper/LoggerMC/gui/GuiScreen.drawScreen:Ljava/lang/reflect/Method;
+     193: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     196: ldc           #166                // String (IIF)V
+     198: aconst_null
+     199: aconst_null
+     200: invokevirtual #95                 // Method al/logger/libs/asm/ClassWriter.visitMethod:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Lal/logger/libs/asm/MethodVisitor;
+     203: astore        6
+     205: aload         6
+     207: bipush        25
+     209: iconst_0
+     210: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     213: aload         6
+     215: sipush        180
+     218: aload_2
+     219: aload_3
+     220: ldc           #66                 // class al/logger/client/bridge/bridges/GuiScreenBridge
+     222: invokestatic  #88                 // Method al/logger/libs/asm/Type.getDescriptor:(Ljava/lang/Class;)Ljava/lang/String;
+     225: invokevirtual #99                 // Method al/logger/libs/asm/MethodVisitor.visitFieldInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     228: aload         6
+     230: bipush        21
+     232: iconst_1
+     233: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     236: aload         6
+     238: bipush        21
+     240: iconst_2
+     241: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     244: aload         6
+     246: bipush        23
+     248: iconst_3
+     249: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     252: aload         6
+     254: sipush        182
+     257: ldc           #66                 // class al/logger/client/bridge/bridges/GuiScreenBridge
+     259: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     262: ldc           #66                 // class al/logger/client/bridge/bridges/GuiScreenBridge
+     264: ldc           #167                // String drawScreen
+     266: invokestatic  #121                // Method al/logger/client/utils/obfuscate/ObfuscateHelper.targetObfuscatedMethod:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;
+     269: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     272: ldc           #166                // String (IIF)V
+     274: invokevirtual #98                 // Method al/logger/libs/asm/MethodVisitor.visitMethodInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     277: aload         6
+     279: sipush        177
+     282: invokevirtual #100                // Method al/logger/libs/asm/MethodVisitor.visitInsn:(I)V
+     285: aload         6
+     287: invokevirtual #101                // Method al/logger/libs/asm/MethodVisitor.visitEnd:()V
+     290: aload         5
+     292: iconst_1
+     293: getstatic     #168                // Field al/logger/client/wrapper/LoggerMC/gui/GuiScreen.initGui:Ljava/lang/reflect/Method;
+     296: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     299: ldc           #97                 // String ()V
+     301: aconst_null
+     302: aconst_null
+     303: invokevirtual #95                 // Method al/logger/libs/asm/ClassWriter.visitMethod:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Lal/logger/libs/asm/MethodVisitor;
+     306: astore        6
+     308: aload         6
+     310: bipush        25
+     312: iconst_0
+     313: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     316: aload         6
+     318: sipush        180
+     321: aload_2
+     322: aload_3
+     323: ldc           #66                 // class al/logger/client/bridge/bridges/GuiScreenBridge
+     325: invokestatic  #88                 // Method al/logger/libs/asm/Type.getDescriptor:(Ljava/lang/Class;)Ljava/lang/String;
+     328: invokevirtual #99                 // Method al/logger/libs/asm/MethodVisitor.visitFieldInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     331: aload         6
+     333: sipush        182
+     336: ldc           #66                 // class al/logger/client/bridge/bridges/GuiScreenBridge
+     338: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     341: ldc           #66                 // class al/logger/client/bridge/bridges/GuiScreenBridge
+     343: ldc           #169                // String initGui
+     345: invokestatic  #121                // Method al/logger/client/utils/obfuscate/ObfuscateHelper.targetObfuscatedMethod:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;
+     348: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     351: ldc           #97                 // String ()V
+     353: invokevirtual #98                 // Method al/logger/libs/asm/MethodVisitor.visitMethodInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     356: aload         6
+     358: sipush        177
+     361: invokevirtual #100                // Method al/logger/libs/asm/MethodVisitor.visitInsn:(I)V
+     364: aload         6
+     366: invokevirtual #101                // Method al/logger/libs/asm/MethodVisitor.visitEnd:()V
+     369: aload         5
+     371: iconst_1
+     372: getstatic     #170                // Field al/logger/client/wrapper/LoggerMC/gui/GuiScreen.onGuiClosed:Ljava/lang/reflect/Method;
+     375: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     378: ldc           #97                 // String ()V
+     380: aconst_null
+     381: aconst_null
+     382: invokevirtual #95                 // Method al/logger/libs/asm/ClassWriter.visitMethod:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Lal/logger/libs/asm/MethodVisitor;
+     385: astore        6
+     387: aload         6
+     389: bipush        25
+     391: iconst_0
+     392: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     395: aload         6
+     397: sipush        180
+     400: aload_2
+     401: aload_3
+     402: ldc           #66                 // class al/logger/client/bridge/bridges/GuiScreenBridge
+     404: invokestatic  #88                 // Method al/logger/libs/asm/Type.getDescriptor:(Ljava/lang/Class;)Ljava/lang/String;
+     407: invokevirtual #99                 // Method al/logger/libs/asm/MethodVisitor.visitFieldInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     410: aload         6
+     412: sipush        182
+     415: ldc           #66                 // class al/logger/client/bridge/bridges/GuiScreenBridge
+     417: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     420: ldc           #66                 // class al/logger/client/bridge/bridges/GuiScreenBridge
+     422: ldc           #171                // String onGuiClosed
+     424: invokestatic  #121                // Method al/logger/client/utils/obfuscate/ObfuscateHelper.targetObfuscatedMethod:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;
+     427: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     430: ldc           #97                 // String ()V
+     432: invokevirtual #98                 // Method al/logger/libs/asm/MethodVisitor.visitMethodInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     435: aload         6
+     437: sipush        177
+     440: invokevirtual #100                // Method al/logger/libs/asm/MethodVisitor.visitInsn:(I)V
+     443: aload         6
+     445: invokevirtual #101                // Method al/logger/libs/asm/MethodVisitor.visitEnd:()V
+     448: aload         5
+     450: iconst_1
+     451: getstatic     #172                // Field al/logger/client/wrapper/LoggerMC/gui/GuiScreen.updateScreen:Ljava/lang/reflect/Method;
+     454: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     457: ldc           #97                 // String ()V
+     459: aconst_null
+     460: aconst_null
+     461: invokevirtual #95                 // Method al/logger/libs/asm/ClassWriter.visitMethod:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Lal/logger/libs/asm/MethodVisitor;
+     464: astore        6
+     466: aload         6
+     468: bipush        25
+     470: iconst_0
+     471: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     474: aload         6
+     476: sipush        180
+     479: aload_2
+     480: aload_3
+     481: ldc           #66                 // class al/logger/client/bridge/bridges/GuiScreenBridge
+     483: invokestatic  #88                 // Method al/logger/libs/asm/Type.getDescriptor:(Ljava/lang/Class;)Ljava/lang/String;
+     486: invokevirtual #99                 // Method al/logger/libs/asm/MethodVisitor.visitFieldInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     489: aload         6
+     491: sipush        182
+     494: ldc           #66                 // class al/logger/client/bridge/bridges/GuiScreenBridge
+     496: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     499: ldc           #66                 // class al/logger/client/bridge/bridges/GuiScreenBridge
+     501: ldc           #173                // String updateScreen
+     503: invokestatic  #121                // Method al/logger/client/utils/obfuscate/ObfuscateHelper.targetObfuscatedMethod:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;
+     506: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     509: ldc           #97                 // String ()V
+     511: invokevirtual #98                 // Method al/logger/libs/asm/MethodVisitor.visitMethodInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     514: aload         6
+     516: sipush        177
+     519: invokevirtual #100                // Method al/logger/libs/asm/MethodVisitor.visitInsn:(I)V
+     522: aload         6
+     524: invokevirtual #101                // Method al/logger/libs/asm/MethodVisitor.visitEnd:()V
+     527: aload         5
+     529: iconst_1
+     530: getstatic     #174                // Field al/logger/client/wrapper/LoggerMC/gui/GuiScreen.mouseReleased:Ljava/lang/reflect/Method;
+     533: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     536: ldc           #175                // String (III)V
+     538: aconst_null
+     539: aconst_null
+     540: invokevirtual #95                 // Method al/logger/libs/asm/ClassWriter.visitMethod:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Lal/logger/libs/asm/MethodVisitor;
+     543: astore        6
+     545: aload         6
+     547: bipush        25
+     549: iconst_0
+     550: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     553: aload         6
+     555: sipush        180
+     558: aload_2
+     559: aload_3
+     560: ldc           #66                 // class al/logger/client/bridge/bridges/GuiScreenBridge
+     562: invokestatic  #88                 // Method al/logger/libs/asm/Type.getDescriptor:(Ljava/lang/Class;)Ljava/lang/String;
+     565: invokevirtual #99                 // Method al/logger/libs/asm/MethodVisitor.visitFieldInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     568: aload         6
+     570: bipush        21
+     572: iconst_1
+     573: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     576: aload         6
+     578: bipush        21
+     580: iconst_2
+     581: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     584: aload         6
+     586: bipush        21
+     588: iconst_3
+     589: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     592: aload         6
+     594: sipush        182
+     597: ldc           #66                 // class al/logger/client/bridge/bridges/GuiScreenBridge
+     599: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     602: ldc           #66                 // class al/logger/client/bridge/bridges/GuiScreenBridge
+     604: ldc           #176                // String mouseReleased
+     606: invokestatic  #121                // Method al/logger/client/utils/obfuscate/ObfuscateHelper.targetObfuscatedMethod:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;
+     609: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     612: ldc           #175                // String (III)V
+     614: invokevirtual #98                 // Method al/logger/libs/asm/MethodVisitor.visitMethodInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     617: aload         6
+     619: sipush        177
+     622: invokevirtual #100                // Method al/logger/libs/asm/MethodVisitor.visitInsn:(I)V
+     625: aload         6
+     627: invokevirtual #101                // Method al/logger/libs/asm/MethodVisitor.visitEnd:()V
+     630: aload         5
+     632: iconst_4
+     633: getstatic     #177                // Field al/logger/client/wrapper/LoggerMC/gui/GuiScreen.keyTyped:Ljava/lang/reflect/Method;
+     636: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     639: ldc           #178                // String (CI)V
+     641: aconst_null
+     642: aconst_null
+     643: invokevirtual #95                 // Method al/logger/libs/asm/ClassWriter.visitMethod:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Lal/logger/libs/asm/MethodVisitor;
+     646: astore        6
+     648: new           #133                // class al/logger/libs/asm/Label
+     651: dup
+     652: invokespecial #134                // Method al/logger/libs/asm/Label."<init>":()V
+     655: astore        7
+     657: aload         6
+     659: bipush        25
+     661: iconst_0
+     662: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     665: aload         6
+     667: sipush        180
+     670: aload_2
+     671: aload_3
+     672: ldc           #66                 // class al/logger/client/bridge/bridges/GuiScreenBridge
+     674: invokestatic  #88                 // Method al/logger/libs/asm/Type.getDescriptor:(Ljava/lang/Class;)Ljava/lang/String;
+     677: invokevirtual #99                 // Method al/logger/libs/asm/MethodVisitor.visitFieldInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     680: aload         6
+     682: bipush        21
+     684: iconst_1
+     685: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     688: aload         6
+     690: bipush        21
+     692: iconst_2
+     693: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     696: aload         6
+     698: sipush        182
+     701: ldc           #66                 // class al/logger/client/bridge/bridges/GuiScreenBridge
+     703: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     706: ldc           #66                 // class al/logger/client/bridge/bridges/GuiScreenBridge
+     708: ldc           #179                // String keyTyped
+     710: invokestatic  #121                // Method al/logger/client/utils/obfuscate/ObfuscateHelper.targetObfuscatedMethod:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;
+     713: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     716: ldc           #180                // String (CI)Z
+     718: invokevirtual #98                 // Method al/logger/libs/asm/MethodVisitor.visitMethodInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     721: aload         6
+     723: sipush        153
+     726: aload         7
+     728: invokevirtual #146                // Method al/logger/libs/asm/MethodVisitor.visitJumpInsn:(ILal/logger/libs/asm/Label;)V
+     731: aload         6
+     733: bipush        25
+     735: iconst_0
+     736: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     739: aload         6
+     741: bipush        21
+     743: iconst_1
+     744: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     747: aload         6
+     749: bipush        21
+     751: iconst_2
+     752: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     755: aload         6
+     757: sipush        183
+     760: aload         4
+     762: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     765: getstatic     #177                // Field al/logger/client/wrapper/LoggerMC/gui/GuiScreen.keyTyped:Ljava/lang/reflect/Method;
+     768: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     771: ldc           #178                // String (CI)V
+     773: invokevirtual #98                 // Method al/logger/libs/asm/MethodVisitor.visitMethodInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     776: aload         6
+     778: aload         7
+     780: invokevirtual #140                // Method al/logger/libs/asm/MethodVisitor.visitLabel:(Lal/logger/libs/asm/Label;)V
+     783: aload         6
+     785: sipush        177
+     788: invokevirtual #100                // Method al/logger/libs/asm/MethodVisitor.visitInsn:(I)V
+     791: aload         5
+     793: iconst_1
+     794: getstatic     #181                // Field al/logger/client/wrapper/LoggerMC/gui/GuiScreen.mouseClicked:Ljava/lang/reflect/Method;
+     797: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     800: ldc           #175                // String (III)V
+     802: aconst_null
+     803: aconst_null
+     804: invokevirtual #95                 // Method al/logger/libs/asm/ClassWriter.visitMethod:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Lal/logger/libs/asm/MethodVisitor;
+     807: astore        6
+     809: aload         6
+     811: bipush        25
+     813: iconst_0
+     814: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     817: aload         6
+     819: sipush        180
+     822: aload_2
+     823: aload_3
+     824: ldc           #66                 // class al/logger/client/bridge/bridges/GuiScreenBridge
+     826: invokestatic  #88                 // Method al/logger/libs/asm/Type.getDescriptor:(Ljava/lang/Class;)Ljava/lang/String;
+     829: invokevirtual #99                 // Method al/logger/libs/asm/MethodVisitor.visitFieldInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     832: aload         6
+     834: bipush        21
+     836: iconst_1
+     837: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     840: aload         6
+     842: bipush        21
+     844: iconst_2
+     845: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     848: aload         6
+     850: bipush        21
+     852: iconst_3
+     853: invokevirtual #96                 // Method al/logger/libs/asm/MethodVisitor.visitVarInsn:(II)V
+     856: aload         6
+     858: sipush        182
+     861: ldc           #66                 // class al/logger/client/bridge/bridges/GuiScreenBridge
+     863: invokestatic  #84                 // Method al/logger/libs/asm/Type.getInternalName:(Ljava/lang/Class;)Ljava/lang/String;
+     866: ldc           #66                 // class al/logger/client/bridge/bridges/GuiScreenBridge
+     868: ldc           #182                // String mouseClicked
+     870: invokestatic  #121                // Method al/logger/client/utils/obfuscate/ObfuscateHelper.targetObfuscatedMethod:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;
+     873: invokevirtual #104                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+     876: ldc           #175                // String (III)V
+     878: invokevirtual #98                 // Method al/logger/libs/asm/MethodVisitor.visitMethodInsn:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     881: aload         6
+     883: sipush        177
+     886: invokevirtual #100                // Method al/logger/libs/asm/MethodVisitor.visitInsn:(I)V
+     889: aload         6
+     891: invokevirtual #101                // Method al/logger/libs/asm/MethodVisitor.visitEnd:()V
+     894: aload         5
+     896: invokevirtual #108                // Method al/logger/libs/asm/ClassWriter.toByteArray:()[B
+     899: astore        6
+     901: new           #109                // class al/logger/libs/asm/ClassReader
+     904: dup
+     905: aload         6
+     907: invokespecial #110                // Method al/logger/libs/asm/ClassReader."<init>":([B)V
+     910: astore        7
+     912: new           #81                 // class al/logger/libs/asm/ClassWriter
+     915: dup
+     916: iconst_2
+     917: invokespecial #82                 // Method al/logger/libs/asm/ClassWriter."<init>":(I)V
+     920: astore        8
+     922: aload         7
+     924: aload         8
+     926: iconst_0
+     927: invokevirtual #113                // Method al/logger/libs/asm/ClassReader.accept:(Lal/logger/libs/asm/ClassVisitor;I)V
+     930: aload         8
+     932: invokevirtual #108                // Method al/logger/libs/asm/ClassWriter.toByteArray:()[B
+     935: astore        6
+     937: invokestatic  #12                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     940: invokevirtual #114                // Method al/logger/client/Logger.getAgent:()Lal/logger/client/agent/Agent;
+     943: ldc           #66                 // class al/logger/client/bridge/bridges/GuiScreenBridge
+     945: invokevirtual #115                // Method java/lang/Class.getClassLoader:()Ljava/lang/ClassLoader;
+     948: aload_1
+     949: aload         6
+     951: invokeinterface #116,  4          // InterfaceMethod al/logger/client/agent/Agent.defineClass:(Ljava/lang/ClassLoader;Ljava/lang/String;[B)Ljava/lang/Class;
+     956: astore        9
+     958: aload         9
+     960: areturn
+    LineNumberTable:
+      line 483: 0
+      line 484: 24
+      line 485: 33
+      line 486: 39
+      line 487: 44
+      line 489: 54
+      line 490: 73
+      line 492: 88
+      line 494: 118
+      line 495: 126
+      line 496: 143
+      line 497: 151
+      line 498: 159
+      line 499: 174
+      line 501: 182
+      line 504: 187
+      line 506: 205
+      line 507: 213
+      line 508: 228
+      line 509: 236
+      line 510: 244
+      line 511: 252
+      line 512: 277
+      line 514: 285
+      line 517: 290
+      line 519: 308
+      line 520: 316
+      line 521: 331
+      line 522: 356
+      line 524: 364
+      line 527: 369
+      line 529: 387
+      line 530: 395
+      line 531: 410
+      line 532: 435
+      line 534: 443
+      line 537: 448
+      line 539: 466
+      line 540: 474
+      line 541: 489
+      line 542: 514
+      line 544: 522
+      line 547: 527
+      line 549: 545
+      line 550: 553
+      line 551: 568
+      line 552: 576
+      line 553: 584
+      line 554: 592
+      line 555: 617
+      line 557: 625
+      line 560: 630
+      line 562: 648
+      line 563: 657
+      line 564: 665
+      line 565: 680
+      line 566: 688
+      line 567: 696
+      line 568: 721
+      line 569: 731
+      line 570: 739
+      line 571: 747
+      line 572: 755
+      line 573: 776
+      line 575: 783
+      line 578: 791
+      line 580: 809
+      line 581: 817
+      line 582: 832
+      line 583: 840
+      line 584: 848
+      line 585: 856
+      line 586: 881
+      line 588: 889
+      line 590: 894
+      line 591: 901
+      line 592: 912
+      line 593: 922
+      line 594: 930
+      line 595: 937
+      line 596: 958
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+        118      69     6  init   Lal/logger/libs/asm/MethodVisitor;
+        205      85     6 drawScreen   Lal/logger/libs/asm/MethodVisitor;
+        308      61     6 initGui   Lal/logger/libs/asm/MethodVisitor;
+        387      61     6 onGuiClosed   Lal/logger/libs/asm/MethodVisitor;
+        466      61     6 updateScreen   Lal/logger/libs/asm/MethodVisitor;
+        545      85     6 mouseReleased   Lal/logger/libs/asm/MethodVisitor;
+        648     143     6 keyTyped   Lal/logger/libs/asm/MethodVisitor;
+        657     134     7    L0   Lal/logger/libs/asm/Label;
+        809      85     6 mouseClicked   Lal/logger/libs/asm/MethodVisitor;
+          0     961     0  this   Lal/logger/client/bridge/BridgeManager;
+         24     937     1  name   Ljava/lang/String;
+         33     928     2 internalName   Ljava/lang/String;
+         39     922     3 wrappedScreen   Ljava/lang/String;
+         44     917     4 superClass   Ljava/lang/Class;
+         54     907     5    cw   Lal/logger/libs/asm/ClassWriter;
+        901      60     6 bytes   [B
+        912      49     7    cr   Lal/logger/libs/asm/ClassReader;
+        922      39     8   cw2   Lal/logger/libs/asm/ClassWriter;
+        958       3     9 bridge   Ljava/lang/Class;
+
+  public static java.lang.String createRandomString(int);
+    Code:
+       0: ldc           #183                // String abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
+       2: astore_1
+       3: new           #184                // class java/util/Random
+       6: dup
+       7: invokespecial #185                // Method java/util/Random."<init>":()V
+      10: astore_2
+      11: new           #186                // class java/lang/StringBuffer
+      14: dup
+      15: invokespecial #187                // Method java/lang/StringBuffer."<init>":()V
+      18: astore_3
+      19: iconst_0
+      20: istore        4
+      22: iload         4
+      24: iload_0
+      25: if_icmpge     53
+      28: aload_2
+      29: bipush        62
+      31: invokevirtual #188                // Method java/util/Random.nextInt:(I)I
+      34: istore        5
+      36: aload_3
+      37: aload_1
+      38: iload         5
+      40: invokevirtual #24                 // Method java/lang/String.charAt:(I)C
+      43: invokevirtual #189                // Method java/lang/StringBuffer.append:(C)Ljava/lang/StringBuffer;
+      46: pop
+      47: iinc          4, 1
+      50: goto          22
+      53: aload_3
+      54: invokevirtual #190                // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+      57: areturn
+    LineNumberTable:
+      line 600: 0
+      line 601: 3
+      line 602: 11
+      line 603: 19
+      line 604: 28
+      line 605: 36
+      line 603: 47
+      line 607: 53
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+         36      11     5 number   I
+         22      31     4     i   I
+          0      58     0 length   I
+          3      55     1   str   Ljava/lang/String;
+         11      47     2 random   Ljava/util/Random;
+         19      39     3 stringBuffer   Ljava/lang/StringBuffer;
+
+  public java.lang.Class<?> getGuiScreenBridgeClass();
+    Code:
+       0: aload_0
+       1: getfield      #2                  // Field GuiScreenBridgeClass:Ljava/lang/Class;
+       4: areturn
+    LineNumberTable:
+      line 32: 0
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+          0       5     0  this   Lal/logger/client/bridge/BridgeManager;
+
+  public java.lang.Class<?> getIResourceBridgeClass();
+    Code:
+       0: aload_0
+       1: getfield      #3                  // Field IResourceBridgeClass:Ljava/lang/Class;
+       4: areturn
+    LineNumberTable:
+      line 34: 0
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+          0       5     0  this   Lal/logger/client/bridge/BridgeManager;
+
+  public java.lang.Class<?> getIResourceManagerBridgeClass();
+    Code:
+       0: aload_0
+       1: getfield      #4                  // Field IResourceManagerBridgeClass:Ljava/lang/Class;
+       4: areturn
+    LineNumberTable:
+      line 36: 0
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+          0       5     0  this   Lal/logger/client/bridge/BridgeManager;
+
+  public java.lang.Class<?> getNoEventPacketClass();
+    Code:
+       0: aload_0
+       1: getfield      #5                  // Field NoEventPacketClass:Ljava/lang/Class;
+       4: areturn
+    LineNumberTable:
+      line 38: 0
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+          0       5     0  this   Lal/logger/client/bridge/BridgeManager;
+
+  public java.lang.reflect.Constructor<?> getGuiScreenBridgeConstructor();
+    Code:
+       0: aload_0
+       1: getfield      #6                  // Field GuiScreenBridgeConstructor:Ljava/lang/reflect/Constructor;
+       4: areturn
+    LineNumberTable:
+      line 40: 0
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+          0       5     0  this   Lal/logger/client/bridge/BridgeManager;
+
+  public java.lang.reflect.Constructor<?> getIResourceBridgeConstructor();
+    Code:
+       0: aload_0
+       1: getfield      #7                  // Field IResourceBridgeConstructor:Ljava/lang/reflect/Constructor;
+       4: areturn
+    LineNumberTable:
+      line 42: 0
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+          0       5     0  this   Lal/logger/client/bridge/BridgeManager;
+
+  public java.lang.reflect.Constructor<?> getIResourceManagerConstructor();
+    Code:
+       0: aload_0
+       1: getfield      #8                  // Field IResourceManagerConstructor:Ljava/lang/reflect/Constructor;
+       4: areturn
+    LineNumberTable:
+      line 44: 0
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+          0       5     0  this   Lal/logger/client/bridge/BridgeManager;
+
+  public java.lang.reflect.Constructor<?> getNoEventPacketConstructor();
+    Code:
+       0: aload_0
+       1: getfield      #9                  // Field NoEventPacketConstructor:Ljava/lang/reflect/Constructor;
+       4: areturn
+    LineNumberTable:
+      line 46: 0
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+          0       5     0  this   Lal/logger/client/bridge/BridgeManager;
+}

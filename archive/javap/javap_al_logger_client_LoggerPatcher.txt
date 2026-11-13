@@ -1,0 +1,972 @@
+Compiled from "LoggerPatcher.java"
+public class al.logger.client.LoggerPatcher {
+  static int steps;
+
+  private static reflect.nya.al.protocol.LoggerProtocol protocol;
+
+  private static java.lang.String username;
+
+  public al.logger.client.LoggerPatcher();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+    LineNumberTable:
+      line 48: 0
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+          0       5     0  this   Lal/logger/client/LoggerPatcher;
+
+  private static final void incStep();
+    Code:
+       0: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: new           #3                  // class java/lang/StringBuilder
+       6: dup
+       7: invokespecial #4                  // Method java/lang/StringBuilder."<init>":()V
+      10: ldc           #5                  // String [Logger-Patcher]>>Step:
+      12: invokevirtual #6                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      15: getstatic     #7                  // Field steps:I
+      18: iconst_1
+      19: iadd
+      20: dup
+      21: putstatic     #7                  // Field steps:I
+      24: invokevirtual #8                  // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      27: invokevirtual #9                  // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      30: invokevirtual #10                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      33: return
+    LineNumberTable:
+      line 51: 0
+      line 52: 33
+
+  public static void lookup();
+    Code:
+       0: ldc           #11                 // String rmi://localhost:1099/LoggerIsTrash
+       2: invokestatic  #12                 // Method java/rmi/Naming.lookup:(Ljava/lang/String;)Ljava/rmi/Remote;
+       5: checkcast     #13                 // class reflect/nya/al/protocol/LoggerProtocol
+       8: putstatic     #14                 // Field protocol:Lreflect/nya/al/protocol/LoggerProtocol;
+      11: goto          44
+      14: astore_0
+      15: new           #16                 // class java/lang/RuntimeException
+      18: dup
+      19: aload_0
+      20: invokespecial #17                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+      23: athrow
+      24: astore_0
+      25: new           #16                 // class java/lang/RuntimeException
+      28: dup
+      29: aload_0
+      30: invokespecial #17                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+      33: athrow
+      34: astore_0
+      35: new           #16                 // class java/lang/RuntimeException
+      38: dup
+      39: aload_0
+      40: invokespecial #17                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+      43: athrow
+      44: return
+    Exception table:
+       from    to  target type
+           0    11    14   Class java/rmi/NotBoundException
+           0    11    24   Class java/net/MalformedURLException
+           0    11    34   Class java/rmi/RemoteException
+    LineNumberTable:
+      line 63: 0
+      line 70: 11
+      line 64: 14
+      line 65: 15
+      line 66: 24
+      line 67: 25
+      line 68: 34
+      line 69: 35
+      line 71: 44
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+         15       9     0     e   Ljava/rmi/NotBoundException;
+         25       9     0     e   Ljava/net/MalformedURLException;
+         35       9     0     e   Ljava/rmi/RemoteException;
+
+  public static final void patch();
+    Code:
+       0: invokestatic  #20                 // Method lookup:()V
+       3: getstatic     #14                 // Field protocol:Lreflect/nya/al/protocol/LoggerProtocol;
+       6: invokeinterface #21,  1           // InterfaceMethod reflect/nya/al/protocol/LoggerProtocol.hs:()V
+      11: goto          24
+      14: astore_0
+      15: new           #16                 // class java/lang/RuntimeException
+      18: dup
+      19: aload_0
+      20: invokespecial #17                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+      23: athrow
+      24: aconst_null
+      25: astore_0
+      26: ldc           #22                 // String 李宇轩1337
+      28: putstatic     #23                 // Field username:Ljava/lang/String;
+      31: getstatic     #14                 // Field protocol:Lreflect/nya/al/protocol/LoggerProtocol;
+      34: new           #3                  // class java/lang/StringBuilder
+      37: dup
+      38: invokespecial #4                  // Method java/lang/StringBuilder."<init>":()V
+      41: ldc           #24                 // String 用户名：
+      43: invokevirtual #6                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      46: getstatic     #23                 // Field username:Ljava/lang/String;
+      49: invokevirtual #6                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      52: invokevirtual #9                  // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      55: invokeinterface #25,  2           // InterfaceMethod reflect/nya/al/protocol/LoggerProtocol.p:(Ljava/lang/String;)V
+      60: goto          194
+      63: astore_1
+      64: iconst_1
+      65: invokestatic  #27                 // Method java/lang/System.exit:(I)V
+      68: aconst_null
+      69: astore_2
+      70: ldc           #28                 // class sun/misc/Unsafe
+      72: ldc           #29                 // String theUnsafe
+      74: invokevirtual #30                 // Method java/lang/Class.getDeclaredField:(Ljava/lang/String;)Ljava/lang/reflect/Field;
+      77: astore_2
+      78: goto          91
+      81: astore_3
+      82: new           #16                 // class java/lang/RuntimeException
+      85: dup
+      86: aload_3
+      87: invokespecial #17                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+      90: athrow
+      91: aload_2
+      92: iconst_1
+      93: invokevirtual #32                 // Method java/lang/reflect/Field.setAccessible:(Z)V
+      96: aload_2
+      97: aconst_null
+      98: invokevirtual #33                 // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     101: checkcast     #28                 // class sun/misc/Unsafe
+     104: ldc2_w        #34                 // long 38389l
+     107: ldc2_w        #36                 // long 234242342l
+     110: invokevirtual #38                 // Method sun/misc/Unsafe.putAddress:(JJ)V
+     113: aload_2
+     114: aconst_null
+     115: invokevirtual #33                 // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     118: checkcast     #28                 // class sun/misc/Unsafe
+     121: ldc2_w        #39                 // long 324232l
+     124: ldc2_w        #41                 // long 23424l
+     127: invokevirtual #38                 // Method sun/misc/Unsafe.putAddress:(JJ)V
+     130: aload_2
+     131: aconst_null
+     132: invokevirtual #33                 // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     135: checkcast     #28                 // class sun/misc/Unsafe
+     138: ldc2_w        #43                 // long 423234l
+     141: ldc2_w        #45                 // long 234232l
+     144: invokevirtual #38                 // Method sun/misc/Unsafe.putAddress:(JJ)V
+     147: aload_2
+     148: aconst_null
+     149: invokevirtual #33                 // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     152: checkcast     #28                 // class sun/misc/Unsafe
+     155: ldc2_w        #47                 // long 42342l
+     158: ldc2_w        #49                 // long 4324l
+     161: invokevirtual #38                 // Method sun/misc/Unsafe.putAddress:(JJ)V
+     164: aload_2
+     165: aconst_null
+     166: invokevirtual #33                 // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     169: checkcast     #28                 // class sun/misc/Unsafe
+     172: ldc2_w        #51                 // long 5201314l
+     175: ldc2_w        #53                 // long 1114514l
+     178: invokevirtual #38                 // Method sun/misc/Unsafe.putAddress:(JJ)V
+     181: goto          194
+     184: astore_3
+     185: new           #16                 // class java/lang/RuntimeException
+     188: dup
+     189: aload_3
+     190: invokespecial #17                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+     193: athrow
+     194: getstatic     #14                 // Field protocol:Lreflect/nya/al/protocol/LoggerProtocol;
+     197: ldc           #56                 // String 你好我是李宇轩，正在初始化宇轩辅助。。
+     199: invokeinterface #25,  2           // InterfaceMethod reflect/nya/al/protocol/LoggerProtocol.p:(Ljava/lang/String;)V
+     204: goto          217
+     207: astore_1
+     208: new           #16                 // class java/lang/RuntimeException
+     211: dup
+     212: aload_1
+     213: invokespecial #17                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+     216: athrow
+     217: new           #57                 // class java/io/File
+     220: dup
+     221: ldc           #58                 // String yuxuan.dll
+     223: invokespecial #59                 // Method java/io/File."<init>":(Ljava/lang/String;)V
+     226: astore_1
+     227: aload_1
+     228: getstatic     #14                 // Field protocol:Lreflect/nya/al/protocol/LoggerProtocol;
+     231: ldc           #60                 // String DebugNative.dll
+     233: invokeinterface #61,  2           // InterfaceMethod reflect/nya/al/protocol/LoggerProtocol.gt:(Ljava/lang/String;)[B
+     238: invokestatic  #62                 // Method al/logger/client/utils/FileUtils.writeFile:(Ljava/io/File;[B)Z
+     241: pop
+     242: aload_1
+     243: invokevirtual #63                 // Method java/io/File.getAbsolutePath:()Ljava/lang/String;
+     246: invokestatic  #64                 // Method java/lang/System.load:(Ljava/lang/String;)V
+     249: goto          262
+     252: astore_2
+     253: new           #16                 // class java/lang/RuntimeException
+     256: dup
+     257: aload_2
+     258: invokespecial #17                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+     261: athrow
+     262: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     265: invokevirtual #66                 // Method al/logger/client/Logger.getLoggerUser:()Lal/logger/client/utils/LoggerUser;
+     268: sipush        255
+     271: invokevirtual #67                 // Method al/logger/client/utils/LoggerUser.setPower:(I)V
+     274: getstatic     #14                 // Field protocol:Lreflect/nya/al/protocol/LoggerProtocol;
+     277: ldc           #68                 // String 255
+     279: invokeinterface #25,  2           // InterfaceMethod reflect/nya/al/protocol/LoggerProtocol.p:(Ljava/lang/String;)V
+     284: goto          297
+     287: astore_2
+     288: new           #16                 // class java/lang/RuntimeException
+     291: dup
+     292: aload_2
+     293: invokespecial #17                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+     296: athrow
+     297: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     300: invokevirtual #66                 // Method al/logger/client/Logger.getLoggerUser:()Lal/logger/client/utils/LoggerUser;
+     303: ldc           #69                 // String LiYuXuanNM$L
+     305: invokevirtual #70                 // Method al/logger/client/utils/LoggerUser.setUserid:(Ljava/lang/String;)V
+     308: getstatic     #14                 // Field protocol:Lreflect/nya/al/protocol/LoggerProtocol;
+     311: ldc           #69                 // String LiYuXuanNM$L
+     313: invokeinterface #25,  2           // InterfaceMethod reflect/nya/al/protocol/LoggerProtocol.p:(Ljava/lang/String;)V
+     318: goto          331
+     321: astore_2
+     322: new           #16                 // class java/lang/RuntimeException
+     325: dup
+     326: aload_2
+     327: invokespecial #17                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+     330: athrow
+     331: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     334: invokevirtual #66                 // Method al/logger/client/Logger.getLoggerUser:()Lal/logger/client/utils/LoggerUser;
+     337: ldc           #71                 // String loserClient
+     339: invokevirtual #72                 // Method al/logger/client/utils/LoggerUser.setJToken:(Ljava/lang/String;)V
+     342: getstatic     #14                 // Field protocol:Lreflect/nya/al/protocol/LoggerProtocol;
+     345: ldc           #71                 // String loserClient
+     347: invokeinterface #25,  2           // InterfaceMethod reflect/nya/al/protocol/LoggerProtocol.p:(Ljava/lang/String;)V
+     352: goto          365
+     355: astore_2
+     356: new           #16                 // class java/lang/RuntimeException
+     359: dup
+     360: aload_2
+     361: invokespecial #17                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+     364: athrow
+     365: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     368: invokevirtual #66                 // Method al/logger/client/Logger.getLoggerUser:()Lal/logger/client/utils/LoggerUser;
+     371: ldc           #73                 // String shit
+     373: invokevirtual #74                 // Method al/logger/client/utils/LoggerUser.setIdunToken:(Ljava/lang/String;)V
+     376: getstatic     #14                 // Field protocol:Lreflect/nya/al/protocol/LoggerProtocol;
+     379: ldc           #73                 // String shit
+     381: invokeinterface #25,  2           // InterfaceMethod reflect/nya/al/protocol/LoggerProtocol.p:(Ljava/lang/String;)V
+     386: goto          399
+     389: astore_2
+     390: new           #16                 // class java/lang/RuntimeException
+     393: dup
+     394: aload_2
+     395: invokespecial #17                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+     398: athrow
+     399: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     402: invokevirtual #66                 // Method al/logger/client/Logger.getLoggerUser:()Lal/logger/client/utils/LoggerUser;
+     405: ldc           #75                 // String SB
+     407: invokevirtual #76                 // Method al/logger/client/utils/LoggerUser.setInstanceTokenNot:(Ljava/lang/String;)V
+     410: getstatic     #14                 // Field protocol:Lreflect/nya/al/protocol/LoggerProtocol;
+     413: ldc           #75                 // String SB
+     415: invokeinterface #25,  2           // InterfaceMethod reflect/nya/al/protocol/LoggerProtocol.p:(Ljava/lang/String;)V
+     420: goto          433
+     423: astore_2
+     424: new           #16                 // class java/lang/RuntimeException
+     427: dup
+     428: aload_2
+     429: invokespecial #17                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+     432: athrow
+     433: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     436: invokevirtual #66                 // Method al/logger/client/Logger.getLoggerUser:()Lal/logger/client/utils/LoggerUser;
+     439: ldc           #75                 // String SB
+     441: invokevirtual #77                 // Method al/logger/client/utils/LoggerUser.setInstanceTokenCom:(Ljava/lang/String;)V
+     444: getstatic     #14                 // Field protocol:Lreflect/nya/al/protocol/LoggerProtocol;
+     447: ldc           #75                 // String SB
+     449: invokeinterface #25,  2           // InterfaceMethod reflect/nya/al/protocol/LoggerProtocol.p:(Ljava/lang/String;)V
+     454: goto          467
+     457: astore_2
+     458: new           #16                 // class java/lang/RuntimeException
+     461: dup
+     462: aload_2
+     463: invokespecial #17                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+     466: athrow
+     467: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     470: invokevirtual #66                 // Method al/logger/client/Logger.getLoggerUser:()Lal/logger/client/utils/LoggerUser;
+     473: ldc           #75                 // String SB
+     475: invokevirtual #78                 // Method al/logger/client/utils/LoggerUser.setInstanceTokenMod:(Ljava/lang/String;)V
+     478: getstatic     #14                 // Field protocol:Lreflect/nya/al/protocol/LoggerProtocol;
+     481: ldc           #75                 // String SB
+     483: invokeinterface #25,  2           // InterfaceMethod reflect/nya/al/protocol/LoggerProtocol.p:(Ljava/lang/String;)V
+     488: goto          501
+     491: astore_2
+     492: new           #16                 // class java/lang/RuntimeException
+     495: dup
+     496: aload_2
+     497: invokespecial #17                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+     500: athrow
+     501: getstatic     #14                 // Field protocol:Lreflect/nya/al/protocol/LoggerProtocol;
+     504: ldc           #79                 // String Logger is Loading
+     506: invokeinterface #25,  2           // InterfaceMethod reflect/nya/al/protocol/LoggerProtocol.p:(Ljava/lang/String;)V
+     511: goto          524
+     514: astore_2
+     515: new           #16                 // class java/lang/RuntimeException
+     518: dup
+     519: aload_2
+     520: invokespecial #17                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+     523: athrow
+     524: ldc           #80                 // class al/logger/client/agent/NativeAgent
+     526: invokestatic  #81                 // Method al/logger/client/Logger.registerNative:(Ljava/lang/Class;)V
+     529: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     532: new           #80                 // class al/logger/client/agent/NativeAgent
+     535: dup
+     536: invokespecial #82                 // Method al/logger/client/agent/NativeAgent."<init>":()V
+     539: invokevirtual #83                 // Method al/logger/client/Logger.setAgent:(Lal/logger/client/agent/Agent;)V
+     542: goto          550
+     545: astore_2
+     546: aload_2
+     547: invokevirtual #85                 // Method java/lang/Throwable.printStackTrace:()V
+     550: invokestatic  #86                 // Method al/logger/client/wrapper/environment/EnvironmentDetector.detect:()V
+     553: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     556: getfield      #87                 // Field al/logger/client/Logger.resourceManager:Lal/logger/client/resource/ResourceManager;
+     559: ifnonnull     575
+     562: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     565: new           #88                 // class al/logger/client/resource/ResourceManager
+     568: dup
+     569: invokespecial #89                 // Method al/logger/client/resource/ResourceManager."<init>":()V
+     572: putfield      #87                 // Field al/logger/client/Logger.resourceManager:Lal/logger/client/resource/ResourceManager;
+     575: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     578: getfield      #87                 // Field al/logger/client/Logger.resourceManager:Lal/logger/client/resource/ResourceManager;
+     581: invokevirtual #90                 // Method al/logger/client/resource/ResourceManager.init:()V
+     584: goto          592
+     587: astore_2
+     588: aload_2
+     589: invokevirtual #91                 // Method java/lang/Exception.printStackTrace:()V
+     592: getstatic     #14                 // Field protocol:Lreflect/nya/al/protocol/LoggerProtocol;
+     595: ldc           #92                 // String 1
+     597: invokeinterface #25,  2           // InterfaceMethod reflect/nya/al/protocol/LoggerProtocol.p:(Ljava/lang/String;)V
+     602: goto          615
+     605: astore_2
+     606: new           #16                 // class java/lang/RuntimeException
+     609: dup
+     610: aload_2
+     611: invokespecial #17                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+     614: athrow
+     615: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     618: new           #93                 // class al/logger/client/transform/TransformManager
+     621: dup
+     622: invokespecial #94                 // Method al/logger/client/transform/TransformManager."<init>":()V
+     625: putfield      #95                 // Field al/logger/client/Logger.transformManager:Lal/logger/client/transform/TransformManager;
+     628: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     631: new           #96                 // class al/logger/client/wrapper/map/MapParser
+     634: dup
+     635: new           #97                 // class java/io/ByteArrayInputStream
+     638: dup
+     639: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     642: getfield      #87                 // Field al/logger/client/Logger.resourceManager:Lal/logger/client/resource/ResourceManager;
+     645: ldc           #98                 // String map
+     647: invokevirtual #99                 // Method al/logger/client/resource/ResourceManager.getResourceBytes:(Ljava/lang/String;)[B
+     650: invokespecial #100                // Method java/io/ByteArrayInputStream."<init>":([B)V
+     653: invokespecial #101                // Method al/logger/client/wrapper/map/MapParser."<init>":(Ljava/io/InputStream;)V
+     656: putfield      #102                // Field al/logger/client/Logger.mapParser:Lal/logger/client/wrapper/map/MapParser;
+     659: invokestatic  #103                // Method al/logger/client/wrapper/Wrapper.init:()V
+     662: invokestatic  #104                // Method al/logger/client/wrapper/Wrapper.wrap:()V
+     665: invokestatic  #105                // Method al/logger/client/wrapper/environment/EnvironmentDetector.getAntiCheats:()Ljava/util/List;
+     668: getstatic     #106                // Field al/logger/client/wrapper/environment/Environment.NPlusAntiCheat:Lal/logger/client/wrapper/environment/Environment;
+     671: invokeinterface #107,  2          // InterfaceMethod java/util/List.contains:(Ljava/lang/Object;)Z
+     676: ifeq          693
+     679: invokestatic  #108                // Method al/logger/client/wrapper/cactus/CactusAdaptor.deobfuscate:()V
+     682: invokestatic  #109                // Method al/logger/client/wrapper/cactus/CactusAdaptor.locateVariable:()V
+     685: goto          693
+     688: astore_2
+     689: aload_2
+     690: invokevirtual #91                 // Method java/lang/Exception.printStackTrace:()V
+     693: invokestatic  #110                // Method incStep:()V
+     696: invokestatic  #111                // Method al/logger/client/wrapper/LoggerMC/Minecraft.getMinecraft:()Lal/logger/client/wrapper/LoggerMC/Minecraft;
+     699: invokedynamic #112,  0            // InvokeDynamic #0:run:()Ljava/lang/Runnable;
+     704: invokevirtual #113                // Method al/logger/client/wrapper/LoggerMC/Minecraft.addScheduledTask:(Ljava/lang/Runnable;)Ljava/lang/Object;
+     707: pop
+     708: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     711: new           #114                // class al/logger/client/ui/managers/MessageManager
+     714: dup
+     715: invokespecial #115                // Method al/logger/client/ui/managers/MessageManager."<init>":()V
+     718: putfield      #116                // Field al/logger/client/Logger.messageManager:Lal/logger/client/ui/managers/MessageManager;
+     721: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     724: new           #117                // class al/logger/client/ui/managers/NotificationManager
+     727: dup
+     728: invokespecial #118                // Method al/logger/client/ui/managers/NotificationManager."<init>":()V
+     731: putfield      #119                // Field al/logger/client/Logger.notificationManager:Lal/logger/client/ui/managers/NotificationManager;
+     734: invokestatic  #120                // Method al/logger/client/ui/managers/NotificationManager.init:()V
+     737: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     740: new           #121                // class al/logger/client/value/ValueManager
+     743: dup
+     744: invokespecial #122                // Method al/logger/client/value/ValueManager."<init>":()V
+     747: putfield      #123                // Field al/logger/client/Logger.valueManager:Lal/logger/client/value/ValueManager;
+     750: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     753: new           #124                // class al/logger/client/config/ConfigManager
+     756: dup
+     757: invokespecial #125                // Method al/logger/client/config/ConfigManager."<init>":()V
+     760: putfield      #126                // Field al/logger/client/Logger.configManager:Lal/logger/client/config/ConfigManager;
+     763: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     766: getfield      #126                // Field al/logger/client/Logger.configManager:Lal/logger/client/config/ConfigManager;
+     769: invokevirtual #127                // Method al/logger/client/config/ConfigManager.init:()V
+     772: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     775: new           #128                // class al/logger/client/features/commands/CommandManager
+     778: dup
+     779: invokespecial #129                // Method al/logger/client/features/commands/CommandManager."<init>":()V
+     782: putfield      #130                // Field al/logger/client/Logger.commandManager:Lal/logger/client/features/commands/CommandManager;
+     785: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     788: getfield      #130                // Field al/logger/client/Logger.commandManager:Lal/logger/client/features/commands/CommandManager;
+     791: invokevirtual #131                // Method al/logger/client/features/commands/CommandManager.init:()V
+     794: getstatic     #14                 // Field protocol:Lreflect/nya/al/protocol/LoggerProtocol;
+     797: ldc           #132                // String sb
+     799: invokeinterface #25,  2           // InterfaceMethod reflect/nya/al/protocol/LoggerProtocol.p:(Ljava/lang/String;)V
+     804: goto          817
+     807: astore_2
+     808: new           #16                 // class java/lang/RuntimeException
+     811: dup
+     812: aload_2
+     813: invokespecial #17                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+     816: athrow
+     817: invokestatic  #110                // Method incStep:()V
+     820: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     823: new           #133                // class al/logger/client/bridge/BridgeManager
+     826: dup
+     827: invokespecial #134                // Method al/logger/client/bridge/BridgeManager."<init>":()V
+     830: putfield      #135                // Field al/logger/client/Logger.bridgeManager:Lal/logger/client/bridge/BridgeManager;
+     833: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     836: getfield      #135                // Field al/logger/client/Logger.bridgeManager:Lal/logger/client/bridge/BridgeManager;
+     839: invokevirtual #136                // Method al/logger/client/bridge/BridgeManager.init:()V
+     842: invokestatic  #110                // Method incStep:()V
+     845: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     848: new           #137                // class al/logger/client/event/EventBus
+     851: dup
+     852: invokespecial #138                // Method al/logger/client/event/EventBus."<init>":()V
+     855: putfield      #139                // Field al/logger/client/Logger.eventBus:Lal/logger/client/event/EventBus;
+     858: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     861: getfield      #139                // Field al/logger/client/Logger.eventBus:Lal/logger/client/event/EventBus;
+     864: invokevirtual #140                // Method al/logger/client/event/EventBus.init:()V
+     867: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     870: new           #141                // class al/logger/client/features/modules/lock/LockManager
+     873: dup
+     874: invokespecial #142                // Method al/logger/client/features/modules/lock/LockManager."<init>":()V
+     877: putfield      #143                // Field al/logger/client/Logger.lockManager:Lal/logger/client/features/modules/lock/LockManager;
+     880: invokestatic  #110                // Method incStep:()V
+     883: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     886: new           #144                // class al/logger/client/utils/FriendManager
+     889: dup
+     890: invokespecial #145                // Method al/logger/client/utils/FriendManager."<init>":()V
+     893: putfield      #146                // Field al/logger/client/Logger.friendManager:Lal/logger/client/utils/FriendManager;
+     896: invokestatic  #110                // Method incStep:()V
+     899: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     902: new           #147                // class al/logger/client/features/modules/GlobalConfiguration
+     905: dup
+     906: invokespecial #148                // Method al/logger/client/features/modules/GlobalConfiguration."<init>":()V
+     909: putfield      #149                // Field al/logger/client/Logger.globalConfiguration:Lal/logger/client/features/modules/GlobalConfiguration;
+     912: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     915: new           #150                // class al/logger/client/features/modules/ModuleManager
+     918: dup
+     919: invokespecial #151                // Method al/logger/client/features/modules/ModuleManager."<init>":()V
+     922: putfield      #152                // Field al/logger/client/Logger.moduleManager:Lal/logger/client/features/modules/ModuleManager;
+     925: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     928: getfield      #152                // Field al/logger/client/Logger.moduleManager:Lal/logger/client/features/modules/ModuleManager;
+     931: invokevirtual #153                // Method al/logger/client/features/modules/ModuleManager.init:()V
+     934: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     937: getfield      #139                // Field al/logger/client/Logger.eventBus:Lal/logger/client/event/EventBus;
+     940: invokevirtual #154                // Method al/logger/client/event/EventBus.registerListeners:()V
+     943: invokestatic  #110                // Method incStep:()V
+     946: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     949: getfield      #139                // Field al/logger/client/Logger.eventBus:Lal/logger/client/event/EventBus;
+     952: invokevirtual #155                // Method al/logger/client/event/EventBus.sortEvent:()V
+     955: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     958: getfield      #139                // Field al/logger/client/Logger.eventBus:Lal/logger/client/event/EventBus;
+     961: invokevirtual #156                // Method al/logger/client/event/EventBus.registerTransformers:()V
+     964: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     967: getfield      #95                 // Field al/logger/client/Logger.transformManager:Lal/logger/client/transform/TransformManager;
+     970: invokevirtual #157                // Method al/logger/client/transform/TransformManager.transform:()I
+     973: pop
+     974: invokestatic  #110                // Method incStep:()V
+     977: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     980: new           #158                // class al/logger/client/ui/managers/MusicManager
+     983: dup
+     984: invokespecial #159                // Method al/logger/client/ui/managers/MusicManager."<init>":()V
+     987: putfield      #160                // Field al/logger/client/Logger.musicManager:Lal/logger/client/ui/managers/MusicManager;
+     990: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+     993: getfield      #116                // Field al/logger/client/Logger.messageManager:Lal/logger/client/ui/managers/MessageManager;
+     996: new           #161                // class al/logger/client/ui/builders/MessageBuilder
+     999: dup
+    1000: invokespecial #162                // Method al/logger/client/ui/builders/MessageBuilder."<init>":()V
+    1003: ldc           #163                // String System
+    1005: invokevirtual #164                // Method al/logger/client/ui/builders/MessageBuilder.setRank:(Ljava/lang/String;)Lal/logger/client/ui/builders/MessageBuilder;
+    1008: ldc           #165                // String Logger
+    1010: invokevirtual #166                // Method al/logger/client/ui/builders/MessageBuilder.setUsername:(Ljava/lang/String;)Lal/logger/client/ui/builders/MessageBuilder;
+    1013: ldc           #167                // String Logger is Dead
+    1015: invokevirtual #168                // Method al/logger/client/ui/builders/MessageBuilder.setMessage:(Ljava/lang/String;)Lal/logger/client/ui/builders/MessageBuilder;
+    1018: invokevirtual #169                // Method al/logger/client/ui/builders/MessageBuilder.createMessage:()Lal/logger/client/ui/bases/components/Message;
+    1021: invokevirtual #170                // Method al/logger/client/ui/managers/MessageManager.addMessage:(Lal/logger/client/ui/bases/components/Message;)V
+    1024: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+    1027: getfield      #116                // Field al/logger/client/Logger.messageManager:Lal/logger/client/ui/managers/MessageManager;
+    1030: new           #161                // class al/logger/client/ui/builders/MessageBuilder
+    1033: dup
+    1034: invokespecial #162                // Method al/logger/client/ui/builders/MessageBuilder."<init>":()V
+    1037: ldc           #171                // String Patcher Author
+    1039: invokevirtual #164                // Method al/logger/client/ui/builders/MessageBuilder.setRank:(Ljava/lang/String;)Lal/logger/client/ui/builders/MessageBuilder;
+    1042: ldc           #172                // String ShinReiAyaMu
+    1044: invokevirtual #166                // Method al/logger/client/ui/builders/MessageBuilder.setUsername:(Ljava/lang/String;)Lal/logger/client/ui/builders/MessageBuilder;
+    1047: ldc           #173                // String Patched By ShinReiAyaMu
+    1049: invokevirtual #168                // Method al/logger/client/ui/builders/MessageBuilder.setMessage:(Ljava/lang/String;)Lal/logger/client/ui/builders/MessageBuilder;
+    1052: invokevirtual #169                // Method al/logger/client/ui/builders/MessageBuilder.createMessage:()Lal/logger/client/ui/bases/components/Message;
+    1055: invokevirtual #170                // Method al/logger/client/ui/managers/MessageManager.addMessage:(Lal/logger/client/ui/bases/components/Message;)V
+    1058: ldc           #174                // String 你好,我是name,我的身份证号是doc,我家在home,很高兴认识你!
+    1060: astore_2
+    1061: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+    1064: getfield      #116                // Field al/logger/client/Logger.messageManager:Lal/logger/client/ui/managers/MessageManager;
+    1067: new           #161                // class al/logger/client/ui/builders/MessageBuilder
+    1070: dup
+    1071: invokespecial #162                // Method al/logger/client/ui/builders/MessageBuilder."<init>":()V
+    1074: ldc           #75                 // String SB
+    1076: invokevirtual #164                // Method al/logger/client/ui/builders/MessageBuilder.setRank:(Ljava/lang/String;)Lal/logger/client/ui/builders/MessageBuilder;
+    1079: ldc           #175                // String LiYuXuan
+    1081: invokevirtual #166                // Method al/logger/client/ui/builders/MessageBuilder.setUsername:(Ljava/lang/String;)Lal/logger/client/ui/builders/MessageBuilder;
+    1084: aload_2
+    1085: ldc           #176                // String name
+    1087: ldc           #177                // String 李宇轩
+    1089: invokevirtual #178                // Method java/lang/String.replace:(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    1092: ldc           #179                // String doc
+    1094: ldc           #180                // String 210703200704132419
+    1096: invokevirtual #178                // Method java/lang/String.replace:(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    1099: ldc           #181                // String home
+    1101: ldc           #182                // String 辽宁省锦州市古塔区人民街二段25-34号
+    1103: invokevirtual #178                // Method java/lang/String.replace:(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    1106: invokevirtual #168                // Method al/logger/client/ui/builders/MessageBuilder.setMessage:(Ljava/lang/String;)Lal/logger/client/ui/builders/MessageBuilder;
+    1109: invokevirtual #169                // Method al/logger/client/ui/builders/MessageBuilder.createMessage:()Lal/logger/client/ui/bases/components/Message;
+    1112: invokevirtual #170                // Method al/logger/client/ui/managers/MessageManager.addMessage:(Lal/logger/client/ui/bases/components/Message;)V
+    1115: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+    1118: getfield      #116                // Field al/logger/client/Logger.messageManager:Lal/logger/client/ui/managers/MessageManager;
+    1121: new           #161                // class al/logger/client/ui/builders/MessageBuilder
+    1124: dup
+    1125: invokespecial #162                // Method al/logger/client/ui/builders/MessageBuilder."<init>":()V
+    1128: ldc           #75                 // String SB
+    1130: invokevirtual #164                // Method al/logger/client/ui/builders/MessageBuilder.setRank:(Ljava/lang/String;)Lal/logger/client/ui/builders/MessageBuilder;
+    1133: ldc           #183                // String LiYiDuo
+    1135: invokevirtual #166                // Method al/logger/client/ui/builders/MessageBuilder.setUsername:(Ljava/lang/String;)Lal/logger/client/ui/builders/MessageBuilder;
+    1138: aload_2
+    1139: ldc           #176                // String name
+    1141: ldc           #184                // String 李一多
+    1143: invokevirtual #178                // Method java/lang/String.replace:(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    1146: ldc           #179                // String doc
+    1148: ldc           #185                // String 210703197904192411
+    1150: invokevirtual #178                // Method java/lang/String.replace:(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    1153: ldc           #181                // String home
+    1155: ldc           #182                // String 辽宁省锦州市古塔区人民街二段25-34号
+    1157: invokevirtual #178                // Method java/lang/String.replace:(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    1160: invokevirtual #168                // Method al/logger/client/ui/builders/MessageBuilder.setMessage:(Ljava/lang/String;)Lal/logger/client/ui/builders/MessageBuilder;
+    1163: invokevirtual #169                // Method al/logger/client/ui/builders/MessageBuilder.createMessage:()Lal/logger/client/ui/bases/components/Message;
+    1166: invokevirtual #170                // Method al/logger/client/ui/managers/MessageManager.addMessage:(Lal/logger/client/ui/bases/components/Message;)V
+    1169: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+    1172: getfield      #116                // Field al/logger/client/Logger.messageManager:Lal/logger/client/ui/managers/MessageManager;
+    1175: new           #161                // class al/logger/client/ui/builders/MessageBuilder
+    1178: dup
+    1179: invokespecial #162                // Method al/logger/client/ui/builders/MessageBuilder."<init>":()V
+    1182: ldc           #75                 // String SB
+    1184: invokevirtual #164                // Method al/logger/client/ui/builders/MessageBuilder.setRank:(Ljava/lang/String;)Lal/logger/client/ui/builders/MessageBuilder;
+    1187: ldc           #186                // String WangHuan
+    1189: invokevirtual #166                // Method al/logger/client/ui/builders/MessageBuilder.setUsername:(Ljava/lang/String;)Lal/logger/client/ui/builders/MessageBuilder;
+    1192: aload_2
+    1193: ldc           #176                // String name
+    1195: ldc           #187                // String 王欢
+    1197: invokevirtual #178                // Method java/lang/String.replace:(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    1200: ldc           #179                // String doc
+    1202: ldc           #188                // String 210702197909030028
+    1204: invokevirtual #178                // Method java/lang/String.replace:(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    1207: ldc           #181                // String home
+    1209: ldc           #182                // String 辽宁省锦州市古塔区人民街二段25-34号
+    1211: invokevirtual #178                // Method java/lang/String.replace:(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    1214: invokevirtual #168                // Method al/logger/client/ui/builders/MessageBuilder.setMessage:(Ljava/lang/String;)Lal/logger/client/ui/builders/MessageBuilder;
+    1217: invokevirtual #169                // Method al/logger/client/ui/builders/MessageBuilder.createMessage:()Lal/logger/client/ui/bases/components/Message;
+    1220: invokevirtual #170                // Method al/logger/client/ui/managers/MessageManager.addMessage:(Lal/logger/client/ui/bases/components/Message;)V
+    1223: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+    1226: getfield      #116                // Field al/logger/client/Logger.messageManager:Lal/logger/client/ui/managers/MessageManager;
+    1229: new           #161                // class al/logger/client/ui/builders/MessageBuilder
+    1232: dup
+    1233: invokespecial #162                // Method al/logger/client/ui/builders/MessageBuilder."<init>":()V
+    1236: ldc           #75                 // String SB
+    1238: invokevirtual #164                // Method al/logger/client/ui/builders/MessageBuilder.setRank:(Ljava/lang/String;)Lal/logger/client/ui/builders/MessageBuilder;
+    1241: ldc           #189                // String LiZiXuan
+    1243: invokevirtual #166                // Method al/logger/client/ui/builders/MessageBuilder.setUsername:(Ljava/lang/String;)Lal/logger/client/ui/builders/MessageBuilder;
+    1246: aload_2
+    1247: ldc           #176                // String name
+    1249: ldc           #190                // String 李梓轩
+    1251: invokevirtual #178                // Method java/lang/String.replace:(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    1254: ldc           #179                // String doc
+    1256: ldc           #191                // String 210703____________
+    1258: invokevirtual #178                // Method java/lang/String.replace:(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    1261: ldc           #181                // String home
+    1263: ldc           #182                // String 辽宁省锦州市古塔区人民街二段25-34号
+    1265: invokevirtual #178                // Method java/lang/String.replace:(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    1268: invokevirtual #168                // Method al/logger/client/ui/builders/MessageBuilder.setMessage:(Ljava/lang/String;)Lal/logger/client/ui/builders/MessageBuilder;
+    1271: invokevirtual #169                // Method al/logger/client/ui/builders/MessageBuilder.createMessage:()Lal/logger/client/ui/bases/components/Message;
+    1274: invokevirtual #170                // Method al/logger/client/ui/managers/MessageManager.addMessage:(Lal/logger/client/ui/bases/components/Message;)V
+    1277: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+    1280: new           #192                // class al/logger/client/managers/AuthUserManager
+    1283: dup
+    1284: invokespecial #193                // Method al/logger/client/managers/AuthUserManager."<init>":()V
+    1287: putfield      #194                // Field al/logger/client/Logger.authUserManager:Lal/logger/client/managers/AuthUserManager;
+    1290: getstatic     #14                 // Field protocol:Lreflect/nya/al/protocol/LoggerProtocol;
+    1293: ldc           #195                // String 2
+    1295: invokeinterface #25,  2           // InterfaceMethod reflect/nya/al/protocol/LoggerProtocol.p:(Ljava/lang/String;)V
+    1300: goto          1313
+    1303: astore_3
+    1304: new           #16                 // class java/lang/RuntimeException
+    1307: dup
+    1308: aload_3
+    1309: invokespecial #17                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+    1312: athrow
+    1313: getstatic     #14                 // Field protocol:Lreflect/nya/al/protocol/LoggerProtocol;
+    1316: ldc           #196                // String 宇轩辅助初始化完成！
+    1318: invokeinterface #25,  2           // InterfaceMethod reflect/nya/al/protocol/LoggerProtocol.p:(Ljava/lang/String;)V
+    1323: goto          1336
+    1326: astore_3
+    1327: new           #16                 // class java/lang/RuntimeException
+    1330: dup
+    1331: aload_3
+    1332: invokespecial #17                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+    1335: athrow
+    1336: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+    1339: invokevirtual #197                // Method al/logger/client/Logger.injectSucceed:()V
+    1342: getstatic     #14                 // Field protocol:Lreflect/nya/al/protocol/LoggerProtocol;
+    1345: ldc           #198                // String reg
+    1347: invokeinterface #25,  2           // InterfaceMethod reflect/nya/al/protocol/LoggerProtocol.p:(Ljava/lang/String;)V
+    1352: goto          1365
+    1355: astore_3
+    1356: new           #16                 // class java/lang/RuntimeException
+    1359: dup
+    1360: aload_3
+    1361: invokespecial #17                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+    1364: athrow
+    1365: getstatic     #14                 // Field protocol:Lreflect/nya/al/protocol/LoggerProtocol;
+    1368: invokestatic  #111                // Method al/logger/client/wrapper/LoggerMC/Minecraft.getMinecraft:()Lal/logger/client/wrapper/LoggerMC/Minecraft;
+    1371: invokevirtual #199                // Method al/logger/client/wrapper/LoggerMC/Minecraft.getSession:()Lal/logger/client/wrapper/LoggerMC/utils/Session;
+    1374: invokevirtual #200                // Method al/logger/client/wrapper/LoggerMC/utils/Session.getUsername:()Ljava/lang/String;
+    1377: invokeinterface #25,  2           // InterfaceMethod reflect/nya/al/protocol/LoggerProtocol.p:(Ljava/lang/String;)V
+    1382: goto          1395
+    1385: astore_3
+    1386: new           #16                 // class java/lang/RuntimeException
+    1389: dup
+    1390: aload_3
+    1391: invokespecial #17                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+    1394: athrow
+    1395: return
+    Exception table:
+       from    to  target type
+           3    11    14   Class java/rmi/RemoteException
+          26    60    63   Class java/lang/Exception
+          70    78    81   Class java/lang/NoSuchFieldException
+          96   181   184   Class java/lang/IllegalAccessException
+         194   204   207   Class java/rmi/RemoteException
+         227   249   252   Class java/rmi/RemoteException
+         274   284   287   Class java/rmi/RemoteException
+         308   318   321   Class java/rmi/RemoteException
+         342   352   355   Class java/rmi/RemoteException
+         376   386   389   Class java/rmi/RemoteException
+         410   420   423   Class java/rmi/RemoteException
+         444   454   457   Class java/rmi/RemoteException
+         478   488   491   Class java/rmi/RemoteException
+         501   511   514   Class java/rmi/RemoteException
+         524   542   545   Class java/lang/Throwable
+         575   584   587   Class java/lang/Exception
+         592   602   605   Class java/rmi/RemoteException
+         679   685   688   Class java/lang/Exception
+         794   804   807   Class java/rmi/RemoteException
+        1290  1300  1303   Class java/rmi/RemoteException
+        1313  1323  1326   Class java/rmi/RemoteException
+        1342  1352  1355   Class java/rmi/RemoteException
+        1365  1382  1385   Class java/rmi/RemoteException
+    LineNumberTable:
+      line 75: 0
+      line 78: 3
+      line 81: 11
+      line 79: 14
+      line 80: 15
+      line 82: 24
+      line 85: 26
+      line 86: 31
+      line 105: 60
+      line 87: 63
+      line 88: 64
+      line 89: 68
+      line 91: 70
+      line 94: 78
+      line 92: 81
+      line 93: 82
+      line 95: 91
+      line 97: 96
+      line 98: 113
+      line 99: 130
+      line 100: 147
+      line 101: 164
+      line 104: 181
+      line 102: 184
+      line 103: 185
+      line 113: 194
+      line 116: 204
+      line 114: 207
+      line 115: 208
+      line 118: 217
+      line 121: 227
+      line 122: 242
+      line 125: 249
+      line 123: 252
+      line 124: 253
+      line 127: 262
+      line 129: 274
+      line 132: 284
+      line 130: 287
+      line 131: 288
+      line 133: 297
+      line 135: 308
+      line 138: 318
+      line 136: 321
+      line 137: 322
+      line 139: 331
+      line 141: 342
+      line 144: 352
+      line 142: 355
+      line 143: 356
+      line 145: 365
+      line 147: 376
+      line 150: 386
+      line 148: 389
+      line 149: 390
+      line 151: 399
+      line 153: 410
+      line 156: 420
+      line 154: 423
+      line 155: 424
+      line 157: 433
+      line 159: 444
+      line 162: 454
+      line 160: 457
+      line 161: 458
+      line 163: 467
+      line 165: 478
+      line 168: 488
+      line 166: 491
+      line 167: 492
+      line 171: 501
+      line 174: 511
+      line 172: 514
+      line 173: 515
+      line 176: 524
+      line 177: 529
+      line 180: 542
+      line 178: 545
+      line 179: 546
+      line 181: 550
+      line 182: 553
+      line 183: 562
+      line 186: 575
+      line 189: 584
+      line 187: 587
+      line 188: 588
+      line 192: 592
+      line 195: 602
+      line 193: 605
+      line 194: 606
+      line 196: 615
+      line 197: 628
+      line 198: 659
+      line 199: 662
+      line 200: 665
+      line 202: 679
+      line 203: 682
+      line 207: 685
+      line 205: 688
+      line 206: 689
+      line 209: 693
+      line 210: 696
+      line 212: 708
+      line 213: 721
+      line 214: 734
+      line 216: 737
+      line 217: 750
+      line 218: 763
+      line 219: 772
+      line 220: 785
+      line 222: 794
+      line 225: 804
+      line 223: 807
+      line 224: 808
+      line 227: 817
+      line 228: 820
+      line 229: 833
+      line 230: 842
+      line 231: 845
+      line 232: 858
+      line 233: 867
+      line 234: 880
+      line 235: 883
+      line 236: 896
+      line 237: 899
+      line 238: 912
+      line 239: 925
+      line 241: 934
+      line 242: 943
+      line 243: 946
+      line 244: 955
+      line 245: 964
+      line 246: 974
+      line 247: 977
+      line 248: 990
+      line 249: 1024
+      line 250: 1058
+      line 252: 1061
+      line 253: 1115
+      line 254: 1169
+      line 255: 1223
+      line 257: 1277
+      line 259: 1290
+      line 262: 1300
+      line 260: 1303
+      line 261: 1304
+      line 269: 1313
+      line 272: 1323
+      line 270: 1326
+      line 271: 1327
+      line 274: 1336
+      line 276: 1342
+      line 279: 1352
+      line 277: 1355
+      line 278: 1356
+      line 281: 1365
+      line 284: 1382
+      line 282: 1385
+      line 283: 1386
+      line 348: 1395
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+         15       9     0     e   Ljava/rmi/RemoteException;
+         82       9     3   xxe   Ljava/lang/NoSuchFieldException;
+        185       9     3   x4e   Ljava/lang/IllegalAccessException;
+         70     124     2     F   Ljava/lang/reflect/Field;
+         64     130     1     e   Ljava/lang/Exception;
+        208       9     1     e   Ljava/rmi/RemoteException;
+        253       9     2     e   Ljava/rmi/RemoteException;
+        288       9     2     e   Ljava/rmi/RemoteException;
+        322       9     2     e   Ljava/rmi/RemoteException;
+        356       9     2     e   Ljava/rmi/RemoteException;
+        390       9     2     e   Ljava/rmi/RemoteException;
+        424       9     2     e   Ljava/rmi/RemoteException;
+        458       9     2     e   Ljava/rmi/RemoteException;
+        492       9     2     e   Ljava/rmi/RemoteException;
+        515       9     2     e   Ljava/rmi/RemoteException;
+        546       4     2     e   Ljava/lang/Throwable;
+        588       4     2     e   Ljava/lang/Exception;
+        606       9     2     e   Ljava/rmi/RemoteException;
+        689       4     2     e   Ljava/lang/Exception;
+        808       9     2     e   Ljava/rmi/RemoteException;
+       1304       9     3     e   Ljava/rmi/RemoteException;
+       1327       9     3     e   Ljava/rmi/RemoteException;
+       1356       9     3     e   Ljava/rmi/RemoteException;
+       1386       9     3     e   Ljava/rmi/RemoteException;
+         26    1370     0  resp   Ljava/lang/String;
+        227    1169     1  nmdb   Ljava/io/File;
+       1061     335     2 template   Ljava/lang/String;
+
+  public static final al.logger.client.resource.ResourceInfo loadFromSelf(java.lang.String);
+    Code:
+       0: invokestatic  #65                 // Method al/logger/client/Logger.getInstance:()Lal/logger/client/Logger;
+       3: getfield      #87                 // Field al/logger/client/Logger.resourceManager:Lal/logger/client/resource/ResourceManager;
+       6: getfield      #201                // Field al/logger/client/resource/ResourceManager.resourceInfos:Ljava/util/HashMap;
+       9: astore_1
+      10: aload_1
+      11: aload_0
+      12: invokevirtual #202                // Method java/util/HashMap.containsKey:(Ljava/lang/Object;)Z
+      15: ifeq          27
+      18: aload_1
+      19: aload_0
+      20: invokevirtual #203                // Method java/util/HashMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      23: checkcast     #204                // class al/logger/client/resource/ResourceInfo
+      26: areturn
+      27: aload_0
+      28: ldc           #205                // String vsh
+      30: invokevirtual #206                // Method java/lang/String.contains:(Ljava/lang/CharSequence;)Z
+      33: ifeq          56
+      36: new           #3                  // class java/lang/StringBuilder
+      39: dup
+      40: invokespecial #4                  // Method java/lang/StringBuilder."<init>":()V
+      43: ldc           #207                // String resource/
+      45: invokevirtual #6                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      48: aload_0
+      49: invokevirtual #6                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      52: invokevirtual #9                  // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      55: astore_0
+      56: new           #204                // class al/logger/client/resource/ResourceInfo
+      59: dup
+      60: aload_0
+      61: invokespecial #208                // Method al/logger/client/resource/ResourceInfo."<init>":(Ljava/lang/String;)V
+      64: astore_2
+      65: aload_1
+      66: aload_0
+      67: aload_2
+      68: invokevirtual #209                // Method java/util/HashMap.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      71: pop
+      72: aload_2
+      73: getstatic     #14                 // Field protocol:Lreflect/nya/al/protocol/LoggerProtocol;
+      76: aload_0
+      77: invokeinterface #61,  2           // InterfaceMethod reflect/nya/al/protocol/LoggerProtocol.gt:(Ljava/lang/String;)[B
+      82: putfield      #210                // Field al/logger/client/resource/ResourceInfo.bytes:[B
+      85: goto          93
+      88: astore_3
+      89: aload_3
+      90: invokevirtual #211                // Method java/rmi/RemoteException.printStackTrace:()V
+      93: aload_2
+      94: areturn
+    Exception table:
+       from    to  target type
+          72    85    88   Class java/rmi/RemoteException
+    LineNumberTable:
+      line 350: 0
+      line 351: 10
+      line 352: 18
+      line 354: 27
+      line 355: 36
+      line 357: 56
+      line 358: 65
+      line 361: 72
+      line 364: 85
+      line 362: 88
+      line 363: 89
+      line 366: 93
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+         89       4     3     e   Ljava/rmi/RemoteException;
+          0      95     0  name   Ljava/lang/String;
+         10      85     1 resourceInfos   Ljava/util/HashMap;
+         65      30     2 result   Lal/logger/client/resource/ResourceInfo;
+
+  private static void patchResource();
+    Code:
+       0: return
+    LineNumberTable:
+      line 370: 0
+
+  public static reflect.nya.al.protocol.LoggerProtocol getProtocol();
+    Code:
+       0: getstatic     #14                 // Field protocol:Lreflect/nya/al/protocol/LoggerProtocol;
+       3: areturn
+    LineNumberTable:
+      line 55: 0
+
+  public static java.lang.String getUsername();
+    Code:
+       0: getstatic     #23                 // Field username:Ljava/lang/String;
+       3: areturn
+    LineNumberTable:
+      line 58: 0
+
+  static {};
+    Code:
+       0: iconst_0
+       1: putstatic     #7                  // Field steps:I
+       4: return
+    LineNumberTable:
+      line 49: 0
+}

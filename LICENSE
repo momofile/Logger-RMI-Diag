@@ -1,0 +1,34 @@
+MIT License
+
+Copyright (c) 2026 momofile and The Logger-RMI-Diag contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+## Scope of this license / 授权范围
+
+MIT 仅适用于本项目**原创**的部分：
+
+- `src/` 下的 Java 源码、`tools/` 下的生成脚本
+- `build.bat` / `start-server.bat` / `verify.bat` / `run.sh`
+- 本仓库全部 Markdown 文档（README / AUTHORS / CHANGELOG / RELEASE / NOTICE / THIRD_PARTY / payload 说明）
+- `payload/DebugNative.stub.dll`（本项目自行生成的 1024 字节空壳 PE）
+
+**不在 MIT 授权范围内**：`payload/resource/`、`payload/DebugNative.dll`（真实原生模块）、`archive/` 下的反编译字节码与 javap 文本。这些是原样收录的第三方内容，权利归各自原权利人，逐项说明见 `THIRD_PARTY.md` 与 `NOTICE.md`。本项目不对其主张版权，也不将其重新许可为 MIT。

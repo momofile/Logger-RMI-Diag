@@ -1,0 +1,22 @@
+# 忽略运行产物与个人数据；第三方归档内容是有意收录的，不要排除
+
+# 编译产物
+out/
+
+# 运行日志（可能含客户端回显的凭据 / 用户名）—— 绝不提交
+requests.log
+*.log
+
+# 排查过程中的个人文件
+crash-*.txt
+latest.log
+hmcl.log
+minecraft.log
+
+# 编辑器 / 系统
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
