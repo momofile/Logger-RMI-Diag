@@ -1,6 +1,8 @@
 # 发布指南 / RELEASE
 
-第一次开源发布不用慌，按这份文件做就行。**下面带「可直接复制」的段落都可以原样粘贴**，只有尖括号 `<...>` 里的内容需要换成你自己的。
+第一次开源发布不用慌，按这份文件做就行。**下面带「可直接复制」的段落都可以原样粘贴。**
+
+> **发布状态**：v1.0.0 已于 2026-11-14 发布 —— 仓库 https://github.com/momofile/Logger-RMI-Diag ，Release https://github.com/momofile/Logger-RMI-Diag/releases/tag/v1.0.0 。下文保留为后续版本的操作参考。
 
 ---
 
@@ -16,7 +18,7 @@
 ## 二、发布前检查清单
 
 - [ ] 署名 **momofile** 已在 `LICENSE`、`AUTHORS.md`、`README.md`、下面第四节文案里出现（已写好，扫一眼即可）
-- [ ] `AUTHORS.md` 里的 `<你的ID>` 换成你的 GitHub / Gitee 用户名
+- [ ] 仓库地址已确定为 `https://github.com/momofile/Logger-RMI-Diag`（如 fork 到别处，改这里即可）
 - [ ] 确认 `NOTICE.md`、`THIRD_PARTY.md` 都在包里 —— 这两份是「标注来源、不冒认版权」的关键
 - [ ] 把 `Logger-RMI-Diag-v1.0.0.zip.sha256` 一并作为 Release 附件上传，方便别人校验
 - [ ] 确认仓库里**没有** `requests.log`、崩溃报告、启动器日志（含凭据和本机路径，`.gitignore` 已挡住）
@@ -111,7 +113,7 @@ MANIFEST 带有加壳保护标记。原作者停止维护并不等于权利自�
 > 最后写出来的是一个 Java 8、零依赖的最小诊断桩，带独立探针和请求日志，
 > 外加 1731 个反编译 class、4 份 javap 文本和全部上游资源，方便后来人复现。
 > 原创代码 MIT，第三方归档单独标注来源、不套 MIT；仅供本机离线排查和存档用。
-> 署名 momofile。地址：<填你的仓库链接>
+> 署名 momofile。地址：https://github.com/momofile/Logger-RMI-Diag
 
 想更短就发第一句 + 最后两句。
 
@@ -138,7 +140,7 @@ MANIFEST 带有加壳保护标记。原作者停止维护并不等于权利自�
 > 那是客户端后续的 WebSocket 通道，本项目明确不实现。日志出现 10234 连接失败
 > 说明链路已经走得更靠后了，属于已知限制，见 README「已知限制」。
 
-## 七、命令示例（Git，把 `<你的ID>` 换掉）
+## 七、命令示例（供后续版本参考，v1.0.0 已执行过）
 
 ```bash
 cd Logger-RMI-Diag
@@ -148,7 +150,7 @@ git add .
 git status                 # 再看一眼暂存区，这一步别省
 git commit -m "Initial release: minimal RMI diagnostic stub + full archive"
 git branch -M main
-git remote add origin https://github.com/<你的ID>/Logger-RMI-Diag.git
+git remote add origin https://github.com/momofile/Logger-RMI-Diag.git
 git push -u origin main
 git tag -a v1.0.0 -m "v1.0.0"
 git push origin v1.0.0

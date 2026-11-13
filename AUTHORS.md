@@ -18,7 +18,7 @@
 
 ```
 Logger-RMI-Diag — 本地 RMI 诊断桩 + 完整归档，原创部分 MIT
-by momofile (co-creator)   https://github.com/<你的ID>/Logger-RMI-Diag
+by momofile (co-creator)   https://github.com/momofile/Logger-RMI-Diag
 ```
 
 ## fork / 再分发时
